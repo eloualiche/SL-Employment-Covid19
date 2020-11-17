@@ -1,8 +1,22 @@
-# Readme for Replication file for *State and Local Government Employment in the COVID-19 Crisis*
+# State and Local Government Employment in the COVID-19 Crisis
 
-This folder contains the replication files for Daniel Green and Erik Loualiche paper in the Journal of Public Economics.
+This repository contains the replication files for Daniel Green and Erik Loualiche paper in the Journal of Public Economics.
+
++ *Green, Daniel and Erik Loualiche*: **State and Local Government Employment in the COVID-19 Crisis**;  Journal of Public Economics, 
++ [Download the paper](https://loualiche.gitlab.io/www/docs/munis_covid_GL.pdf)
++ [Publisher's website](https://doi.org/10.1016/j.jpubeco.2020.104321)
++ [Download the data]()
+
+
 
 ## Code
+
+There is a `makefile` to generate all the tables and figures in the paper: simply run `make` from within the folder. 
+
+Depending on your installation, you might have to edit the makefile and change the path for your stata binary. 
+To be able to run the code, you need to download the data which is available on [Harvard dataverse]()
+
+
 
 ### Building the datasets
 
