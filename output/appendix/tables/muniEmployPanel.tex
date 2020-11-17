@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{D{.}{.}{-1}}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+                    &\multicolumn{1}{c}{Private Emp.}&\multicolumn{1}{c}{State and Local Emp.}&\multicolumn{1}{c}{State Emp.}&\multicolumn{1}{c}{State Emp.}&\multicolumn{1}{c}{Local Emp.}\\
+\midrule
+log State and Local Tax Revenue&       0.091\sym{**} &       0.071         &                     &                     &                     \\
+                    &      (2.45)         &      (1.65)         &                     &                     &                     \\
+log State Tax Revenue&                     &                     &       0.078\sym{***}&       0.064\sym{***}&                     \\
+                    &                     &                     &      (3.82)         &      (6.34)         &                     \\
+log Local Tax Revenue&                     &                     &                     &                     &        0.14\sym{**} \\
+                    &                     &                     &                     &                     &      (2.07)         \\
+Low Rainy Day $\times$ log State Tax Revenue&                     &                     &                     &     -0.0020         &                     \\
+                    &                     &                     &                     &     (-0.22)         &                     \\
+Med Rainy Day $\times$ log State Tax Revenue&                     &                     &                     &     -0.0012         &                     \\
+                    &                     &                     &                     &     (-0.23)         &                     \\
+Constant            &        6.38\sym{***}&        10.7\sym{***}&        9.66\sym{***}&        9.94\sym{***}&        9.25\sym{***}\\
+                    &      (10.8)         &      (15.6)         &      (30.4)         &      (60.9)         &      (9.09)         \\
+\midrule
+N                   &        1250         &        1250         &        1250         &         280         &        1250         \\
+r2\_within           &      0.0095         &      0.0067         &       0.065         &       0.091         &       0.012         \\
+\bottomrule
+\multicolumn{6}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

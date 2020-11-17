@@ -1,0 +1,55 @@
+%!TEX root = ../localgov_GL_jpube.tex
+
+
+%%%%%%%%%%%%%% SETTINGS %%%%%%%%%%%%%%%%
+% \setlist[enumerate,1]{label=\textit{(\alph*)}}
+\renewcommand{\theenumi}{\alph{enumi}} 
+\renewcommand{\labelenumi}{(\theenumi)}
+% \setlist{noitemsep,nolistsep}
+\numberwithin{equation}{section}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+
+%%%%%%%%%%%%% NEW COMMAND %%%%%%%%%%%%%%
+\newcommand{\tbf}[1]{\textbf{#1}}
+\newcommand{\tsf}[1]{\textsf{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}}
+\newcommand{\mcal}[1]{\mathcal{#1}}
+\newcommand{\esper}{\mathbf{E}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\dd}{\mathrm{d}}
+
+% # For mbar
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+
+
+
+% http://www.latex-community.org/forum/viewtopic.php?f=45&t=3970
+% proble with nested input in tables: use a tex command within latex
+% \newcommand*\ExpandableInput[1]{\@@input #1 }
+\makeatletter\let\ExpandableInput\@@input\makeatother 
+% \def\input#1{\@@input #1 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% command for notes of figures
+\DeclareCaptionFont{tiny}{\tiny}
+\newcommand\fnote[1]{\captionsetup{font=footnotesize,labelfont=normal,justification=normal}\caption*{#1}}
+\newcommand\smallcaption[1]{\captionsetup{font=tiny,labelfont=normal}\caption{#1}}
+\newcommand\figurenote[1]{\captionsetup{font=tiny, labelfont=normal, justification=normal}\caption*{#1}}
+
+\newcolumntype{L}{D{.}{.}{2,5}} % for dcolumn package
+\newcolumntype{d}{D{.}{.}{-1}}
+\newcolumntype{Y}{D..{6.3}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\font\manual=manfnt %dangerous sign
+\def\dbend{{\manual\char127}} % dangerous bend sign
+
+\renewcommand{\qed}{\nobreak \ifvmode \relax \else
+      \ifdim\lastskip<1.5em \hskip1em %\lastskip
+      \hskip0em plus0em minus0.5em \fi \nobreak
+      \vrule height0.75em width0.5em depth0.25em\fi}

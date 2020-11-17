@@ -1,0 +1,141 @@
+
+\documentclass[11pt]{article}
+
+
+%% -----------------------------------------------------------------------------
+% PREAMBLE 1: packages
+\input{./src/preamble1}
+
+
+%% -----------------------------------------------------------------------------
+% BIBLATEX
+\usepackage{natbib}       
+\newcommand{\textcite}[1]{\cite{#1}}
+% \renewcommand*{\cite}[1]{\textcite{#1}}
+\RequirePackage[colorlinks,linktoc=page,pdfencoding=auto,psdextra]{hyperref}
+
+% Metadata
+\hypersetup{pdfauthor={Erik Loualiche and Daniel Green},% 
+            pdftitle={Municipal Finance},%
+            pdfkeywords={Economics, Finance},%
+            pdfsubject={Economics, Finance},%
+            pdfcreator={pdfLaTeX},%
+            citecolor=halfmaroon,%
+            urlcolor=blue,%
+            linkcolor=dark-gray}
+%% -----------------------------------------------------------------------------
+
+
+%% -----------------------------------------------------------------------------
+% PREAMBLE 1: new commands
+\input{./src/preamble2}
+\setcounter{footnote}{1}
+ 
+
+%% -----------------------------------------------------------------------------
+%% TITLE
+\title{State and Local Government Employment in the COVID-19 Crisis%
+    % \thanks{}\\ 
+    \medskip
+}
+
+\author{Daniel Green and Erik Loualiche%
+        \thanks{Green: Harvard Business School, email: \href{mailto:dgreen@hbs.edu}{dgreen@hbs.edu}; Loualiche: Carlson School of Management, University of Minnesota, email: \href{mailto:eloualic@umn.edu}{eloualic@umn.edu}. We thank Sid Beaumaster and Jin Yao for outstanding research assistance. Thanks to the editor Nathan Hendren, three anonymous referees, Jeffrey Clemens, John Green, Sam Hanson, Jonathan Parker, Larry Summers, Mark Zandi, and seminar participants at the HBS Finance Lunch for helpful feedback.
+ }
+} 
+\date{October 9, 2020}
+
+
+
+%% ======================================================================================================
+%% ======================================================================================================
+%% START DOCUMENT
+\begin{document}
+% \begin{small}
+\maketitle
+\thispagestyle{empty}
+
+\begin{singlespace}
+\abstract{ \noindent \small
+Local governments are facing large losses in revenues and increased expenditures because of the COVID-19 crisis. We document a causal relationship between fiscal pressures induced by COVID-19 and the layoffs of state and local government workers. States that depend more on sales tax as a source of revenue laid off significantly more workers than other states. The CARES Act's provision of \$150 billion in aid to state and local governments reduced the fiscal pressures they faced. Exploiting a kink in the formula for allocation of funding across states, we estimate that without this funding state and local governments would have laid off an additional 401,000 workers in April 2020, 40 percent more than realized. State rainy day fund balances limit the sensitivity of employment to these revenue shocks, revealing that balanced budget requirements for state and local governments increase the procyclicality of public service provision.  
+}
+\end{singlespace}
+%% ======================================================================================================
+
+
+
+
+%% ======================================================================================================
+\newpage
+\clearpage
+\setcounter{page}{1}
+% \newpage
+% \onehalfspacing; \doublespacing
+%% ======================================================================================================
+
+
+%% ======================================================================================================
+\input{./src/jpube_submission_body}
+
+
+%% ======================================================================================================
+\begin{singlespace}
+
+
+%% ======================================================================================================
+%% ======================================================================================================
+% Bibliography
+\clearpage\newpage
+\begin{small}
+\begin{singlespace}
+  \bibliographystyle{aer}
+  \bibliography{./src/localgov}  
+\end{singlespace}
+\end{small}
+
+
+
+%% ======================================================================================================
+%% ======================================================================================================
+% \appendix
+\newgeometry{margin = 1in} 
+
+%\newpage
+%\section*{Figures}
+%cho\input{./src/figures.tex}
+
+%\clearpage\newpage
+%\section*{Tables}
+%\input{./src/tables.tex}
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+%\setcounter{section}{0}
+%\renewcommand{\thesection}{A\arabic{section}}
+
+\renewcommand{\thesubsection}{\Alph{subsection}}
+
+\clearpage\newpage
+\section*{Online Appendix}
+
+\input{./src/appendix.tex}
+
+\restoregeometry
+%% ======================================================================================================
+%% ======================================================================================================
+
+
+\end{singlespace}
+%% ======================================================================================================
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

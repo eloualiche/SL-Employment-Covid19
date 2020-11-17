@@ -1,0 +1,36 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{D{.}{.}{-1}}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{FS}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{IV (Health)}&\multicolumn{1}{c}{OLS}\\
+\midrule
+CARES Act Exposure  &       -0.62\sym{***}&                     &                     &       -0.63\sym{**} &       -1.04         &                     \\
+                    &     (-3.15)         &                     &                     &     (-2.24)         &     (-1.19)         &                     \\
+Low Rainy Day \# CARES Act Exposure&                     &                     &                     &                     &                     &       -1.09\sym{***}\\
+                    &                     &                     &                     &                     &                     &     (-3.37)         \\
+Med Rainy Day \# CARES Act Exposure&                     &                     &                     &                     &                     &       -0.98\sym{**} \\
+                    &                     &                     &                     &                     &                     &     (-2.51)         \\
+High Rainy Day \# CARES Act Exposure&                     &                     &                     &                     &                     &       -0.37\sym{*}  \\
+                    &                     &                     &                     &                     &                     &     (-1.69)         \\
+Small State         &                     &       -0.55\sym{**} &        0.88\sym{***}&                     &                     &                     \\
+                    &                     &     (-2.21)         &      (9.15)         &                     &                     &                     \\
+Log Population $\times$ Small State&                     &       0.043\sym{***}&      -0.059\sym{***}&                     &                     &                     \\
+                    &                     &      (3.28)         &     (-10.2)         &                     &                     &                     \\
+Log Population $\times$ Large State&                     &      0.0062         &     0.00036         &                     &                     &                     \\
+                    &                     &      (0.60)         &      (0.13)         &                     &                     &                     \\
+COVID Infection Rate&      -0.067\sym{***}&      -0.066\sym{***}&     -0.0088\sym{*}  &      -0.068\sym{***}&      -0.040         &      -0.069\sym{***}\\
+                    &     (-3.42)         &     (-3.43)         &     (-1.94)         &     (-3.75)         &     (-0.87)         &     (-3.45)         \\
+COVID Death Rate    &        2.99\sym{***}&        3.00\sym{***}&        0.23         &        3.02\sym{***}&        0.51         &        2.96\sym{***}\\
+                    &      (3.59)         &      (3.55)         &      (1.12)         &      (3.79)         &      (0.28)         &      (3.55)         \\
+Log Population      &                     &                     &                     &      0.0024         &     -0.0076         &                     \\
+                    &                     &                     &                     &      (0.31)         &     (-0.29)         &                     \\
+\midrule
+N                   &          50         &          50         &          50         &          50         &          50         &          50         \\
+$ R^2$              &        0.29         &        0.32         &        0.91         &        0.30         &       0.034         &        0.34         \\
+First-Stage F       &                     &                     &                     &        42.7         &        42.7         &                     \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{7}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

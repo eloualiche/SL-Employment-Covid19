@@ -1,0 +1,390 @@
+%!TEX root = ../localgov_GL_jpube.tex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+The onset of the COVID-19 pandemic created challenges for governments across the globe. Virtually overnight they were forced to organize, implement, and finance responses to both public health and economic crises. In the United States, state and local governments account for a large share of overall government service provision, particularly so for those most essential in a the pandemic. Unemployment benefits, education, public safety, and health services are largely administered at the state and local levels. While the federal government has been able to respond with dramatically increased spending, local governments are subject to balanced budget requirements. They cannot significantly increase spending without corresponding increases in revenues. But the pandemic-induced demand for government services has coincided with a substantial decline in the tax revenues collected by state and local governments. Thus, a centrally important question for informing policy response to the pandemic is how fiscal pressures on state and local governments affect their ability to respond to the crisis, and continue to function in the potentially prolonged economic downturn. 
+
+We provide early evidence on this question by studying the dimension of local government activity on which data is most expeditiously available--public sector employment. April 2020 saw record declines in national employment, with the Bureau of Labor Statistics Current Employment Survey (CES) estimating a month-over-month loss of more than twenty million jobs. Surprisingly, nearly one million of these lost jobs were in the public sector. By May, 1.5 million public employees had been laid off. There were essentially no job losses among federal workers, all public sector job losses stemmed from state and local governments.
+  
+We show that the capacity of state and local governments to withstand fiscal pressures induced by the pandemic explains a large fraction of public sector layoffs at the onset of the pandemic. Our analysis highlights the role of balanced budget requirements, which prevent borrowing to finance non-capital expenditures such as payrolls. Under such requirements, governments with greater revenue exposure to the pandemic-induced economic contraction face greater fiscal pressure in the short term.
+ 
+Revenue exposure to the COVID-19 pandemic is significant. Lost sales tax revenues, deferred tax payments, and lowered projections for income and property taxes have strained the finances of states, municipalities, and other local governments. As of July 1, 2020, twenty-six states were predicting fiscal year 2020 revenue shortfalls of more than ten percent. Budget analysts in Colorado, Wyoming, Hawaii, and New Mexico forecast funding gaps of over twenty percent of pre-pandemic budgets.\footnote{These figures are based on hand-collected budget reports released by forty states from April to June 2020.}  Estimates of the aggregate revenue shortfalls faced by state and local governments through the 2021 fiscal year are as high as \$500 billion \citep{Whitaker:2020:LocalGovHelp}.
+
+The main contribution of this paper is to document and quantify the relationship between fiscal pressures on state and local governments and the contraction of state and local government employment in the first months of the pandemic. We measure governments' revenue sensitivity to the pandemic in two ways. First, lockdowns and stay-at-home orders lead to a sharp contraction in sales tax revenue. State and local governments vary in the composition of their tax base---Florida collects no income taxes and is thus heavily dependent on general merchandise and tourism sales taxes, while Delaware has no general sales tax. We construct a measure of state and local governments' sales tax dependence and find states with larger sales tax dependence saw a larger contraction of public employment in April 2020. State and local governments deriving ten percentage points more of their revenues from sales taxes saw 2.6 percentage points higher unemployment among their government workers. An aggregation exercise suggests that sales tax exposure alone can explain over 660,000 of the state and local government jobs lost in April, about two-thirds of the total observed declines. Revenue composition thus appears to have been an important source of fiscal fragility with real consequences. 
+    
+Of course, the composition of revenue sources of a state or local government is not randomly assigned, and it is possible that the observed relationship between sales tax dependence and public employment contraction is driven at least in part by something other than the limited fiscal capacity of state and local governments. We provide better identification of the effect of revenue shocks in the pandemic by exploiting a non-linearity in the award of federal grants to state governments that were part of the 2020 CARES Act. As part of the two trillion dollar stimulus package enacted by the federal government on March 27, 2020, the Coronavirus Relief Fund (CRF) awarded a total of \$150 billion in aid to state and local governments. Funding was allocated to states in proportion to their population, except for the smallest 21 states, which received \$1.25bn of support regardless of their population. For the smallest states funding was equivalent to as much as 15 percent of annual state and local government revenues, but less than five percent of revenues for larger states which received funding proportional to their population. We exploit this kink in the CRF award schedule to causally estimate the state and local employment response to federal stimulus. States that received more funding made smaller cuts to public employment. In aggregate, this funding prevented 401,000 layoffs in April, and protected roughly one million job-months of state and local government employment through August.
+
+Further, states with smaller rainy day funds had higher employment elasticities to both sales tax dependence and the size of the state’s CRF aid. 
+The magnitude of the elasticity of public employment to sales tax dependence is highest for states with small rainy day fund balances. 
+States with rainy day funds as a percent of annual expenditure in the lowest tercile have employment declines that are nearly three times as sensitive to sales tax dependence and federal funding than states in the top tercile of reserves. 
+
+Together, these findings suggest that state and local governments adjusted employment in a manner consistent with a binding budget constraint. 
+The fact that public employment declined in response to short term deficit pressures alone suggests either that local governments faced binding intertemporal resource constraints or that they expected permanent fiscal imbalances. However, the fact that states with the lowest funding reserves responded most aggressively to these fiscal pressures suggests balanced budget rules play a significant role in shaping local government policies. 
+
+We are also able to shed some light on which government services were impacted by fiscal pressures of the pandemic. In addition to studying the relationship between fiscal measures and broad public employment, we also look specifically at layoffs among public employees in healthcare occupations. Sales tax dependence is not related to layoffs in healthcare occupations, suggesting that governments prioritized these jobs. However, we do find that increased federal aid is associated with fewer layoffs among healthcare workers. This is consistent with the fact that state and local funding from the CARES Act was supposed to be used only for unplanned expenses related to the pandemic, and also reveals that the minimum amount of funding received was not enough to prevent all healthcare layoffs.
+
+Our findings have important implications for the role of fiscal policy and debt policy in government. 
+As documented by  \cite{Baicker_al:2012:RiseStates}, state and local governments are responsible for a growing share of public service provision in the United States. 
+The fact that these governments cannot borrow to smooth revenue and expenditure shocks means that in the absence of sizable federal intervention or aggressive tax increases, a large amount of government service provision is necessarily procyclical. 
+If state and local governments could borrow against future tax revenues they would likely not be forced to reduce service provision precisely when it is in greatest demand.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{Literature Review}
+
+This paper investigates the real effects of state and local governments' budget and financing rules in the context of the COVID-19 pandemic.
+In early work on the topic, \cite{Poterba:1994:FiscalCrises,Poterba:1995:BudgetRules,Poterba:1995:CapitalBudgets} shows that balanced budget rules impact states' fiscal response to deficit shocks--those with more stringent balance requirements react with greater tax increases and spending cuts.
+Subsequent work by \cite{Fatas_Mihov:2006:FiscalRules} and \cite{HouSmith:2010:BBR} has re-emphasized the role of balanced budget requirements for fiscal policy.
+\cite{Alt_Lowry:1994:DividedGov} show how other institutional constraints, specifically politically divided state governments, make government policy less responsive to revenue shocks.
+We contribute to the literature examining the impact of financing constraints of local governments on their payroll, as public employment is a growing share of total expenditure of local governments. 
+
+The effect of a change in tax revenue on employment is closest to the work on local fiscal multipliers. \cite{Schoag2017} highlights the sales tax dependence of municipal governments and the fiscal implications of shocks to sales tax revenues. \cite{ClemensMiran:2012:LocalFiscalMult} use the methodology of \cite{Poterba:1994:FiscalCrises} to evaluate the effect of a Ricardian multiplier.
+\cite{Chodorow:2019:CSMultipliers} gives a thorough review of the literature, which focused on the 2008 crisis and the American Recovery and Reinvestment Act (e.g. \cite{Chodorow_al:2012:StateFiscal,Wilson:2012:LocalMultiplier,Shoag:2013:StatePension,SuarezWingender:2016:LocalMultiplier}).
+
+We add to a rapidly growing body of literature exploring the consequences of the coronavirus crisis. 
+\cite{Cajner_al:2020:LaborCovid} and \cite{Kahn_al:2020:LaborCovid} both use private-sector data to trace out the real-time impact on private labor markets of the coronavirus crisis and the shutdowns. 
+We find similar magnitudes of decline in private employment using the Current Population Survey (CPS).
+Other studies have used the CPS to draw out a more complete picture of the labor market: \citet{Fairlie_al:2020:C19MinorityEmp} analyzes its impact on minority employment.
+
+We also contribute to the emerging literature analyzing government policy response to the pandemic and its relation to financial institutions and constraints. 
+Some recent work forecasts the realized and future magnitudes state and local government revenue shortfalls (\cite{McNichol:2020:StateShortfallEstimate}, \cite{ClemensVeuger:2020:StateCovid}, \cite{Chernick_al:2020:CovidCities}, \cite{Gordon_al:2020:StateLocalCovid}, \cite{GordonReber:2020:SchoolDistrict}, and \cite{Whitaker:2020:LocalGovHelp}). 
+While we do not use estimates of the drop in revenues, they provide an important quantitative backdrop to evaluate the relevance of policy programs.
+Other work in finance has focused on some of the policy programs enacted in response to the pandemic, for example \cite{GMYZ_PPP} and \cite{Liebersohn2020} evaluate the allocation of funding under the Paycheck Protection Program. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  DATA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Data and Summary Statistics}
+\label{sec:data}
+
+\subsection{Data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Employment in the Current Population Survey}
+We use data from the monthly files of the Current Population survey (CPS, see \cite{IPUM_CPS:2020:Microdata}), which is the main source for the survey measure of unemployment from the Bureau of Labor Statistics. 
+The CPS is a repeated cross-section of more than 130,000 people representative of the U.S. population as a whole. 
+
+% Timing
+We focus on the CPS monthly surveys from January to August 2020. The March CPS data surveys households until March 14th, before most of the states began implementing social distancing measures or shutdown policies. Therefore we focus our attention on the April CPS survey, collected during the week of the 12th to the 18th of April, which gives a more complete picture of the impact of the pandemic on employment  in the U.S.\footnote{The CPS survey asks respondents about their employment status in the week containing the 12th day of the month.} We also examine employment outcomes through August 2020. Additional details about the employment data are described in the Online Data Appendix.
+
+Data to gauge the fiscal capacity of state and local governments to respond to the pandemic comes from several sources. First, we use the Annual Survey of State and Local Government Finances (ASSLGF) from the Census of Governments. This survey and associated reports provide annual estimates of state and local government revenues sources, and expenditures, and debt at an annual frequency. This data is produced by the United States Census Bureau, and the most recently available data is from 2017. The Online Data Appendix provides more information about this data and how we use it to construct the variables used in our analysis. We also employ data from the National Association of State Budget Officers (NASBO) on the size of state rainy day funds expressed as a fraction of general fund direct expenditures. Finally, we use data from the United States Treasury on the size of the Coronavirus Relief Fund aid allocated to each state.
+
+Data on severity of the pandemic comes from the Covid Tracking Project and from \cite{CovidUSState:2020:BU}. We define \emph{COVID Infection Rate} and \emph{COVID Death Rate} as the total number of COVID cases and deaths reported in a state per 100,000 of population. For regressions measuring employment outcomes, we use data on COVID-19 cases as of the end of the prior month. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  STATE AND LOCAL GOV BACKGROUND
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{State and Local Governments in the United States}
+\label{section:motivation}
+
+All of the U.S. states are constrained by balanced budget requirements.\footnote{Vermont is the exception to this rule; however its legislature consistently adopts a balanced budget by tradition.} The large municipal debt market generally funds capital expenditures, it is only \emph{operating budgets} that are required to balance each budget cycle. The stringency of constitutional balanced budget provisions varies somewhat from state to state (see \cite{HouSmith:2010:BBR}). However, statutes, strong budgetary norms, and limits on notional general obligation debt are broadly understood to effectively prevent state and local governments from running large and persistent operating deficits (see \cite{NCSL:2010:BalancedBudget}).
+
+Taxation and public service provisions in the United States occurs at three broad levels of government---federal, state, and local. State governments organize public activity not specifically delegated to the federal government in the Constitution. Among these are the right to raise taxes, regulation of property ownership, and the provision of education, health and welfare services, public safety, and maintenance of state roads. State governments in turn delegate some authorities to local levels of government. Local governments are comprised of counties, cities and townships, other municipalities, and special districts. School districts for example are often technically not part of municipalities and comprise their own government with revenue collection authority. The presence and relative importance of different types of local governments varies regionally. 
+
+In 2017 Federal outlays totaled \$4.1 trillion. 
+Of this, over \$700 billion was allocated to state and local governments. 
+In terms of direct spending, state and local governments together are roughly the same size as the federal government. 
+State and local governments direct expenditures in 2017 were \$1.76 trillion and \$1.90 trillion, respectively. 
+Full time equivalent employment at the federal level was 2.1 million, 4.4 million at the state level, 12.2 million workers and the local level. The share of overall public service provision provided by state and local governments has been increasing over time. From 1968 to 2017 state and local spending grew from 8\% to 19\% of GDP and from 30\% to 52\% of total government spending \citep{Baicker_al:2012:RiseStates}.
+
+% We present summary statistics of state expenditure and payroll in Table~\ref{table:expenditure1}.
+On average across states, state and local governments spend \$31.7 billion on salaries and wages, amounting to 27\% of their total expenditures. 
+This translates into 326,000 employees on average across states, amounting to 11\% of total employment. Note that the share of salaries and wages in local government is 37\% on average, significantly higher than for state governments at 13\%. This is primarily due to the concentration of public welfare spending at the state level and primary and secondary education at the local level. 
+
+We argue in Section~\ref{sec:empirics} how the constraints on local governments budgets during the COVID-19 crisis led states to cut the size of their workforce. 
+The BLS reports that there were 20.6 million people who lost their job between February and April of 2020 in the private sector, and close to one million in the state and local government sector, 4.5\% of the total job losses. Appendix Table \ref{table:summary_occupation} shows state and local government employment declines in April 2020 by occupation. 
+
+Taxation constitutes the main source of revenue for state and local governments, though there is variation in the composition of these revenues. 
+We report summary statistics of tax revenues across state and local governments, and the volatility of tax revenues in Appendix Table~\ref{table:taxrev2}.
+State governments rely on sales and individual income taxes, which account for almost 70\% of revenues, while local governments, counties and municipalities, lean on property taxes. Even between states the composition of taxation is not uniform, as some states do not impose an income tax (e.g. Texas, Florida), or a sales tax (e.g. Delaware, Alaska). 
+Tax revenues are volatile and procyclical due to the cyclicality of the tax base. We find that there is ample variation across states and local governments in the time-series volatility of tax revenues. 
+The average time-series volatility across states is 9.5\% for the sales tax, and 17\% for individual income tax \textemdash the average volatility of total tax revenue is 9\% (see Appendix Table~\ref{table:taxrev2}).
+
+The most dramatic short-run shock to revenue stemmed from sales taxes. For example as sales taxes represent more than 60\% of total revenues for the state of Florida, sales tax receipts in April 2020 declined by \$700mn (a 21\% year-on-year drop).\footnote{Florida saw a decrease in revenue of \$1.15bn comparing the month of April 2019 to April 2020. Florida relies heavily on the sales tax, the sales tax share is 32\%, and sales tax dropped by \$618mn, representing 17.7\% of its total revenues measured in April of 2019. New York on the other hand relies on individual and corporate income taxes, its sales tax share is 12\%. The loss of revenue from the sales tax from April 2019 to April 2020 was \$85mn which represent only 1.4\% of April 2019 revenues. Sources for monthly tax receipts from the Department of Revenue for the State of Florida (\url{https://floridarevenue.com/taxes/Pages/distributions.aspx}, last accessed on June 5 2020) and from the Office of the New York State Comptroller (\url{https://www.osc.state.ny.us/finance/cash-basis} last accessed on June 5 2020).}
+We show in Section~\ref{sec:empirics} how states with different reliance on sales taxes have responded differently to the COVID-19 crisis. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  EMPIRICS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Empirics}
+\label{sec:empirics}
+
+We now examine the response of state and local government spending to fiscal pressures and the extent to which these dynamics are affected by the balanced budget requirements. 
+We focus on the short run response of government employment to the COVID-19 crisis in the Spring of 2020.
+In the Appendix we consider the external validity of these findings and expand our study to the period covering 1992 to 2018.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Effect of COVID-19 on Public Employment in the Sprb ing of 2020}
+%\label{subsec:empirics:covid19emp}
+% (see Figure~\ref{figure:timeline:statepolicycovid})
+
+To prevent further spread of the COVID-19, state and local officials enacted shutdown policies across the U.S. with varying degrees of stringency. These policies brought the economy to a halt leading to an immediate decline in state and local government revenues and uncertainty around when they would recover. We test whether this sudden income shortfall, coupled with the institutional constraint of balanced budget requirements, affected local government service provision in the short run. 
+
+The ideal experiment to test this relationship involves estimating the cross-sectional relation between government service provision and the extent to which their revenue is impacted by the COVID-19 crisis. Measuring each of these variables presents challenges. Comprehensive data on government expenditure and revenue at the state and local level is only available with a substantial lag, and there are many reasons other than the COVID-19 pandemic that expenditures and revenues covary. 
+
+To measure public service provision we use data on public sector employment from the CPS monthly survey, which becomes available several weeks after the survey is conducted.  To overcome the endogeneity issues, we introduce two instruments for revenue that attempt to isolate plausibly exogenous variation in fiscal pressure attributable to the pandemic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sales Tax Dependence}
+\label{subsec:empirics:salestax}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{singlespace}
+% \begin{landscape}
+% \begin{table}[!ht]
+\begin{sidewaystable}
+\begin{center}
+\begin{threeparttable}
+\caption{\\ Summary Statistics}
+\label{table:summarystats}
+\centering 
+\begin{small}
+	\input{../output/tables/summary_SL_covid.tex}
+\end{small}
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports summary statistics for the sample and variables used in the regression analysis in Section~\ref{sec:empirics}. Details of the variable and sample construction are described in the Online Data Appendix.
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+% \end{table}
+\end{sidewaystable}
+% \end{landscape}
+
+\end{singlespace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+First, we proxy for the true variation in short term revenue declines using an ex-ante measure of the share of government revenues derived from sales taxes. Declines in income tax receipts due to elevated unemployment is the traditional channel through which recessions reduce local government revenues. However, lockdowns and social distancing measures sharply decreased household consumption from which governments derive substantial revenue. As described in Section~\ref{sec:data}, states that rely strongly on sales tax have seen their revenue plummet.    
+
+While the CPS data allows us to distinguish between state government and local government workers, we cannot observe which local government employs a given municipal worker. Therefore, we aggregate state and local government workers together within a state and assemble a measure of sales tax revenue dependence that aggregates across all levels of government within a state.  We assemble this measure using annual revenue data from 2017, the most recently available from the Census of Governments.
+
+We consider employment response to this proxy for revenue shortfalls in the following specification:
+\begin{align*}
+	\Delta l_{i} = \alpha + \beta SalesTaxExposure_i + {\gamma}X_i + \varepsilon_i,
+\end{align*}
+where the dependent variable $\Delta l_i$ represents the change in public sector employment in state $i$, the independent variable \emph{Sales Tax Exposure}$_i$ is the share of total state and local revenues in state $i$ derived from sales taxes, and $X$ is a set of control variables.\footnote{We consider sales tax revenue as a percent of \emph{total} revenues rather than as a share of \emph{own-source} revenues. Total revenues include transfers from higher levels of government. Scaling by total revenues, which roughly equal total expenditures, provides an assessment of the impact of a decline in sales tax revenue on governments' ability to finance expenditures.} We consider several measures of the change in public sector employment based on the level or change in the unemployment rate among state and local government workers in a state. Table~\ref{table:summarystats} describes the variables used in the regression analysis.
+
+There are difficulties associated with measuring unemployment during the coronavirus crisis. Some of the questions asked in the CPS survey are ambiguous regarding why a respondent is not at work, chiefly whether the respondent is staying at home because of economic conditions, or staying at home for health reasons. In the COVID-19 pandemic these are overlapping, and there may be misreporting. 
+We consider different measures to draw a full picture of unemployment in the first months of 2020. Our main measure is the ratio of workers in an industry state pair who indicate they were absent from work because they were laid off to the total size of the labor force in that industry state pair. 
+
+We begin by examining the unconditional relationship between our measure of public sector unemployment and the share of revenue coming from sales tax. Figure~\ref{figure:unconditionalScatterSalesShare} plots the April 2020 unemployment rate of state and local government workers against the aggregate sales tax share of revenue of governments in that state, and shows a clear positive relationship between sales tax dependence and public worker layoffs. 
+
+Multivariate regression analysis of this relationship is presented in Table~\ref{table:muniLaidoffCovidDiff}. The first column includes no control variables. The coefficient of $0.42$ on \emph{Sales Tax Exposure} indicates that a state with a one percentage point higher share of revenue coming from sales taxes had a $0.42$ percentage point higher unemployment rate in April 2020 among public employees. 
+Quantitatively, the standard deviation of the sales tax share in the cross-section of states is 5\%; thus a one standard deviation increase in the sales tax share translates into a 2.1 percentage point higher unemployment rate for public employees in April 2020, from a base rate of 1.2\% in February 2020. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{singlespace}
+% \pagestyle{empty}
+%\begin{landscape}
+%\begin{sidewaystable}
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ Short Run Unemployment Response of State and Local Governments: April 2020}
+\label{table:muniLaidoffCovidDiff}
+
+\centering 
+
+\begin{small}
+
+	\input{../output/tables/muniLaidoffCovidDiff.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports analysis of the change from February to April 2020 in the fraction of state and local government workers who have laid off. The \emph{Sales Tax Dependence} coefficients measure the conditional relationship between the sales tax revenue exposure of governments in a state and the change in the unemployment rate of state and local government workers. Column 2 controls for the COVID-19 infection and death rates in a state as of April 2020, state population, and the change in the layoff rate of private sector workers in the state. Column 3 replaces the dependent variable with the change in the fraction of laid off workers among those classified as healthcare workers in the CPS data. Column 4 adds measures of dependence on other major sources of government tax revenue.   $t$-statistics for heteroskedasticity-robust standard errors are reported in parenthesis. 
+
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+%\end{sidewaystable}
+\thispagestyle{empty}
+%\end{landscape}
+\end{singlespace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+It is likely that the univariate relationship between \emph{Sales Tax Exposure} and public sector layoffs is driven in part by other factors that correlate with both the sales tax share of revenues and the general economic impact of the COVID-19 pandemic in a state. The second column adds covariates that capture other likely determinants of local government unemployment---population size, the severity of the pandemic, and the contemporaneous change in private sector layoffs in the state. Controlling for contemporaneous private sector layoffs helps ensure the measured relationship between sales tax exposure and public employment decline is not stemming from factors that are related to both the sales tax share of total revenues and other determinants of a state's economic reaction to the pandemic.  States with a higher COVID-19 death rate relative to infection rate laid off more public workers. The conditional elasticity of public sector layoffs to private sector layoffs is 0.14. Including these controls lowers the magnitude of the sensitivity of layoffs to sales tax revenue exposure to 0.26, though it remains strongly statistically significant. The third column shows that while state and local governments with high sales tax exposure cut employment, they did not cut employment in healthcare occupations.  In the fourth column, we include other major sources of government revenue--property taxes, income taxes, and intergovernmental transfers--and find none of these explain public worker layoffs conditional on sales tax dependence. 
+
+These estimates explain a significant fraction of observed state and local government layoffs. Specifically, they can be used to generate estimates of the aggregate number of job losses attributable to fiscal stress caused by sales tax revenue declines. Multiplying the coefficient estimate of 0.29 in Column 4 by a state's sales tax share of revenue generates the predicted increase in layoffs attributable to sales tax revenue declines. Multiplying this by the February 2020 level of public employment in the state and summing over all states, this explains over 660,000 of the more than one million observed state and local job losses in April 2020.  
+
+Appendix Tables~\ref{table:muniLaidoffStateandLocal} and~\ref{table:muniLaidoffRobustness} explore the robustness of this relationship. Table~\ref{table:muniLaidoffStateandLocal} separates the employment effects of sales tax exposure at state and local governments and finds the magnitude of the effect is higher at the state level. This is not surprising, given the majority of sales taxes are collected at the state rather than local level. The first column of Table~\ref{table:muniLaidoffRobustness} reproduces column 4 of Table~\ref{table:muniLaidoffCovidDiff}, but adds a control for the share of private workers employed in the tourism industry. The second column reports a specification with the standard measure of unemployment rate. The third column replaces the dependent variable with a measure of what fraction of public sector workers reported being moved from full-time to part-time hours. The coefficient estimate suggests exposed governments cut the hours of more employees than they laid off. The fourth column reports a placebo specification with data from January 2020 instead of April 2020. We find no relationship between a state's sales tax share of revenue and the two-month change in public sector layoffs to January 2020, before the risk of the pandemic was apparent. In the fifth column we report another placebo specification that looks at layoffs of federal government workers across states and find this is also not related to our proxy for revenue exposure to the pandemic.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{CARES Act Funding for State and Local Governments}
+\label{subsec:CARESActFunding}
+
+We also explore the relationship between public sector layoffs and funding to state and local governments provided by the CARES Act. The CARES Act allocated \$150 billion dollars to state, local, tribal, and territorial governments through the Coronavirus Relief Fund. The amount allocated to each state was proportional to the population of the state, subject to the constraint that no one state received less than \$1.25 billion dollars from the program.\footnote{State allocations are inclusive of distributions to local governments in the state. \$139 billion was allocated to states, \$3 billion to territories, and \$8 billion to tribal governments. \citet{CRS_Cares}} Figure~\ref{figure:cares_formula} shows the funding allocated to states as a function of their population.  
+
+Twenty-one states received the minimum \$1.25 billion allocation. Among these states, variation in state population translates directly into variation in the amount of funding allocated per capita. The smallest state, Wyoming, had a CRF allocation of \$2,160 per capita, while the largest state receiving the fixed \$1.25 billion allocation, Utah, was allocated \$390 per capita. The remaining twenty-nine states were each allocated \$388 per capita.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CARES ACT FRACTION OF GOVERNMENT REVENUE
+\begin{singlespace}
+\begin{center}
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[scale=1.1]{../output/figures/cares_logpop_fs.pdf}
+	\vspace{-1.2cm}
+	\caption{\\ CARES Funding Exposure and State Population. \\
+	{\small Figure~\ref{figure:cares_frac_rev_sl} plots the CARES Act funding received by a state as a fraction of state and local government revenues in that state against state population, as measured from 2019 Census estimates. Small states, pictured in blue, received identical awards of \$1.25 billion while larger states, pictured in red, received awards proportional in size to their population. Population is plotted on a log scale.}}
+	\label{figure:cares_frac_rev_sl}
+	%\vspace{-1cm}
+\end{figure}
+\end{center}
+\end{singlespace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To explore the role of the CRF aid as fiscal relief, we define \emph{CARES Act Exposure} as the amount of money the state received from the CARES Act relative to the total state and local government revenue in that state in 2018. Figure~\ref{figure:cares_frac_rev_sl} confirms that the variation in states' per-capita CRF allocations translates into significant variation in \emph{CARES Act Exposure}. Vermont's \$1.25 billion of aid is roughly 15 percent of total state and local government revenues, while in New Mexico this figure is less than five percent. In contrast, states that received funding proportional to their population saw federal aid that was a smaller and roughly constant fraction of annual revenues. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\begin{landscape}
+\begin{singlespace}
+
+%\begin{sidewaystable}[!ht]
+\begin{sidewaystable}
+\begin{center}
+\begin{threeparttable}
+\caption{\\ State and Local Government Layoffs and Federal Aid}
+\label{table:layoffCARES}
+
+\centering 
+
+\begin{small}
+
+	\input{../output/tables/cares_laidoff_IV.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports analysis of the relationship between changes in state and local government employment and the amount of CARES Act funding received by a state. \emph{CARES Act Exposure} is defined as the amount of money the state received from the CARES Act relative to the total state and local government revenue in that state in 2018. Unless otherwise noted the dependent variable is the change in the unemployment rate of state and local government workers from February to April 2020, \emph{$\Delta$ Muni Laid Off}. The first column reports ordinary least squares (OLS) regression results. Column 2 reports the reduced form relationship between the instruments for \emph{CARES Act Exposure} and \emph{$\Delta$ Muni Laid Off}. The third column reports the first stage of instrumenting for \emph{CARES Act Exposure} with small and large state specific intercepts and interactions with log state population. Small states received a fixed dollar amount of funding and state population is strongly inversely proportional to \emph{CARES Act Exposure}. Column 4 reports the specification instrumenting for \emph{CARES Act Exposure} as described above. Column 5 replaces the dependent variable with the change in the fraction of laid off workers among those classified as healthcare workers in the CPS data. Column 6 reports OLS estimates for CARES Act Exposure by rainy day fund terciles. $t$-statistics for heteroskedasticity-robust standard errors are reported in parenthesis. 
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+%\end{sidewaystable}
+\end{sidewaystable}
+
+\end{singlespace}
+\thispagestyle{empty}
+
+%\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In Table~\ref{table:layoffCARES} we exploit this variation to measure the state and local government employment response to the size of the CRF award received by a state. Federal aid received through the CRF limited government employee layoffs in April of 2020. Column 1 estimates the ordinary least squares relationship between the change in unemployment of state and local workers from February to April 2020 and the size of the state's \emph{CARES Act Exposure}. This estimate indicates that a CRF allocation larger by ten percentage points of annual state and local government revenues decreased April layoffs of state and local workers by 6.2 percentage points.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CARES ACT REDUCED FORM PLOT
+\begin{singlespace}
+\begin{center}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=1.1]{../output/figures/cares_logpop_rf_no_controls.pdf}
+	\vspace{-1.2cm}
+	\caption{\\ CARES Funding Exposure and Unemployment. \\
+	{\small Figure~\ref{figure:cares_reducedform} plots $\Delta$\emph{Muni Laid Off}, the change from February to April 2020 in the fraction of state and local government workers classified as laid off, against state population, as measured from 2019 Census estimates. Small states, pictured in blue, received identical awards of \$1.25 billion while larger states, pictured in red, received awards proportional in size to their population. The grey fit lines corresponds to the reduced form relationship underlying the instrumental variables estimates in column 4 of Table~\ref{table:layoffCARES}, except not conditional on the control variables in that regression. Including the control variables changes the slopes to the left and right of the kink to 0.043 and 0.006, respectively, as shown in column 2 of Table~\ref{table:layoffCARES}. The $p$-value of the test that the lines intersect at the kink point is $0.951$. The $p$-value of the difference in slopes to the left and right of the kink point is $0.029$. Population is plotted on a log scale.}}
+	\label{figure:cares_reducedform}
+	%\vspace{-1cm}
+\end{figure}
+\end{center}
+\end{singlespace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+While it is clear that a large fraction of variation in \emph{CARES Act Exposure} is generated by the non-linearity in award allocations to states, it is possible that the ordinary least squares estimates reported in Column 1 are biased by an unobserved relationship between per-capita government spending and other fiscal issues that affect the ability to respond to revenue shocks. To address this concern we construct an instrument for \emph{CARES Act Exposure} that exploits only variation coming from the Coronavirus Relief Fund award schedule. Specifically, as shown in Figure~\ref{figure:cares_frac_rev_sl}, log state population is a strong predictor of \emph{CARES Act Exposure} for states receiving the fixed \$1.25 billion allocation of federal funding. We instrument for \emph{CARES Act Exposure} with log population, an indicator of if the state received the fixed \$1.25 billion allocation of CRF funds, and the interaction of these two variables.   
+
+The reduced form relationship between changes in unemployment of state and local government workers and log population is plotted in Figure~\ref{figure:cares_reducedform}. It is clear that lower population is associated with lower state and local unemployment, but only among the states for which low population corresponds to a higher CRF allocation relative to annual government revenues. Column 2 of Table~\ref{table:layoffCARES} shows the regression version of this relationship including control variables. Column 3 reports the first stage relationship between CARES funding and log population, which is highly significant with an $F$-statistic of 42.7 and an $R^2$ of 91\%. Column 4 reports the instrumental variables specification, which shows the magnitude of the coefficient on \emph{CARES Act Exposure} rises very slightly relative to the OLS estimates. 
+
+This estimate can be used to estimate the aggregate effect of the Coronavirus Relief Fund on public employment. Our estimates imply aggregate jobs saved by federal funding can be estimated as:
+\begin{equation*}
+N_{saved,t} = -\sum_s{\hat\beta_t\times {CARES \  Act \  Exposure_s} \times L_{0s}} 
+\end{equation*}
+where $N_{saved,t}$ is the total number of jobs saved by CARES funding in month $t$ and $L_{0s}$ is the ex-ante number of local government employees in state $s$. Using the coefficient of 0.63 from column 3 of Table~\ref{table:layoffCARES} we find the CARES Act funding prevented approximately 401,000 layoffs in April 2020, a sizable fraction of the roughly one million observed layoffs that month. Aggregating over monthly estimates, a total of roughly one million job-months were supported by CRF awards through from April through August 2020, compared with an observed decline of six million job-months over the same period. 
+
+According to March 2020 BLS estimates\footnote{See the  Employer Costs for Employee Compensation News Release from the Bureau of Labor Statistics of March 2020 (\url{https://www.bls.gov/news.release/ecec.htm}, last accessed August 14th 2020).}, the average compensation cost of state and local government employees including benefits was \$52.45 per hour. Assuming a 40 hour work week, of the \$139 billion in federal funding allocated to states, 6.8\% went toward state and local government payrolls over this five month period.
+
+The CRF stipulated that funding could only be used for unplanned expenses related to COVID-19. Despite the limitation on use of CRF funds, these results indicate it was also used to support broad employment of state and local workers. To further explore if CRF funds were allocated as directed, we measure layoffs among public sector workers classified in the CPS as having a healthcare occupation.  Column 4 of Table~\ref{table:layoffCARES} shows the employment response to CRF funding was larger for public workers in healthcare than for public workers overall. This is somewhat surprising. Given that the results of Table~\ref{table:muniLaidoffCovidDiff} suggest state and local governments facing large sales tax revenue declines did not cut healthcare jobs, how did the CRF funding save \emph{any} public healthcare jobs? These findings are consistent if there is another force that caused governments to lay off healthcare workers, but those receiving higher levels of CRF funding were able to use the funding to avoid such layoffs. 
+The fact that we can identify a response for healthcare workers at all also suggests that for the large states (receiving the lowest amount of funding per capita from the CRF), higher levels of federal aid would have been allocated toward more public health spending. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Rainy Day Funds}
+\label{subsec:RainyDayFunds}
+
+These results together suggest that state and local governments that saw larger shocks to their revenues laid off and reduced the hours of significantly more employees immediately following the broad lockdown that started in March 2020. Whether this is evidence of the binding balanced budget constraint of these governments depends on if these governments viewed their revenue exposure as transitory. A persistent decline in expected revenues could cause governments to quickly reduce spending even in the absence of a binding financing constraint. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{singlespace}
+\begin{sidewaystable}
+%\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ State Government Layoffs and Rainy Day Fund Balances}
+\label{table:layoffRainyDay}
+
+\centering 
+
+\begin{small}
+
+	\input{../output/tables/stateLaidOff_rainyday.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports analysis of the employment dynamics of state government workers from February to April 2020. \emph{Rainy Day Fund Exposure} denotes the size of a state's rainy day fund for FY2020 as a fraction of expenditures. Alaska and Wyoming are significant outliers in rainy day fund balances at over 50\% and 100\% of annual expenditure, respectively, and are excluded from the analysis. The dependent variable is the same as defined in Table~\ref{table:muniLaidoffCovidDiff} except using only state government employees instead of state and local government employees in a state. Column 2 looks at only state employees classified in the CPS as healthcare workers.  \emph{Low, Med,} and \emph{High Rainy} are indicators for terciles of rainy day funds as a fraction of annual state expenditures. All specifications control for \emph{COVID Infection Rate}, \emph{COVID Death Rate}, and log state population. All variables are defined as in Table~\ref{table:muniLaidoffCovidDiff}. $t$-statistics for heteroskedasticity-robust standard errors are reported in parenthesis. 
+\end{tablenotes}
+\end{footnotesize}
+
+\end{threeparttable}
+\end{center}
+\end{sidewaystable}
+%\end{table}
+  
+\end{singlespace}
+\thispagestyle{empty}
+
+%\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+To explore this possibility, we look at how sales tax dependence and the size of a state's rainy day fund affect their employment response.  As described in Section~\ref{section:motivation}, states maintain rainy day funds to ensure they can balance the budget in the event of unanticipated changes in revenues or expenditures that realize over the fiscal year. We only have data available for such rainy day funds for state governments, so we now focus on state government workers. Table~\ref{table:layoffRainyDay} explores the ability of rainy day funds as a fraction of 2020 budgeted general expenditures to explain the cross-section of state employee layoffs. Alaska and Wyoming are significant outliers in rainy day fund balances at over 50\% and 100\% of annual expenditure, respectively, and are excluded from the analysis. Column 1 shows that the size of reserve balances is a strong predictor of layoffs in April 2020. A rainy day fund larger by 10 percentage points of general fund expenditure is associated with a 3.0 percentage point lower change in the unemployment rate of state workers from February to April 2020. The third column controls for the effect of a state's dependence on sales tax revenue. The fourth column reports the employment sensitivity of states to revenue exposure by tercile of rainy day fund size. Sensitivity to revenue exposure is highest among states with the lowest rainy day fund balances. This is consistent with the idea that states rainy day balances are a form of precautionary savings used to hedge against the inability to smooth revenue shocks with borrowing. States with higher rainy day fund balances effectively had a less binding financial constraint and were better able to smooth their spending. 
+
+Last we also examine the response of state employment to the CARES Act through the lens of balanced budget rules and state reserve capacity. In column 5 of Table~\ref{table:layoffCARES}, we find that the states in the two lowest terciles of rainy day funds present an elasticity of employment to the CARES Act close to unity (1.09 and 0.98 for the lowest and second lowest tercile respectively). States with larger reserves, in the highest tercile, have an elasticity of 0.37, 63\% smaller. As we emphasize in Section~\ref{subsec:CARESActFunding}, a unit elasticity corresponds to a an allocation of funds that is identical to the existing budget. States with higher reserves, i.e. with lower budget constraints, allocate funds from the CARES Act in a different way than their general budget. The 0.37 elasticity of employment to CARES funding suggests that less fiscally constrained states were able to allocate the funds to finance new pandemic-related expenditures rather than to finance existing payroll obligations.\footnote{For the month of May of 2020, the State of California increased spending for Health and Human Services by 48 million dollars (a 470\% increase), and their social services spending which include supplemental security income and other cash assistance programs, by 390 million dollars (a 180\% increase). See the Statement of General Fund Cash Receipts and Disbursements of the California State Controller (\url{https://sco.ca.gov/Files-ARD/CASH/May2020StatementofGeneralFundCashReceiptsandDisbursements.pdf}; last accessed July 14th 2020). California has the fourth largest rainy day fund of all states as a fraction of government expenditures.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Longer Run Response}
+
+We also study determinants of public sector layoffs as measured in the May, June, July, and August 2020 CPS surveys. In regression specifications these are expressed as a difference in the rate of workers reporting the employment status of laid off in a given month relative to the same measure in February. Table~\ref{table:mediumrun} reports the relationship between state and local employment in April through August and sales tax dependence, CRF funding, and rainy day fund balances, respectively. The relationship between fiscal capacity and layoffs is fairly persistent across these measures through June, though the magnitude of the relationship declines somewhat over time. A notable exception is that the relationship between rainy day fund levels and state worker layoffs disappears entirely beginning in June. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Conclusion}
+
+By the first week of April 2020, 40 states had enacted various forms of shelter-in-place policies and announced closing of non-essential businesses. 
+These policies had large impacts on local economies and on local government budgets. 
+Our findings link the immediate fiscal impact of the pandemic to employment reductions at state and local governments. 
+The pattern of employment contraction among these governments points to binding balanced budget constraints as an explanation of this relationship. 
+The inability of state and local governments to conduct significant deficit spending prevented them from borrowing to smooth the sharp declines in revenue and increases in expenditure brought by the pandemic. Governments that depend more on sales tax revenue saw sharper declines in employment than others. Replacement revenue was also valuable. States that received exogenously more federal funding from the 2020 CARES Act were able to preserve more public sector jobs. The size of a state's rainy day fund also predicted job cuts. Particularly suggestive of a role for binding balanced budget constraints, the relationship between sales tax dependence and employment declines was strongest in states with the smallest rainy day fund balances. 
+
+While both households and corporations benefited from Federal fiscal policy early in the pandemic, state and local governments have raised concerns that they offer significantly more support than they have received. For  households which were largely affected by a large rise in unemployment, fiscal policy responded to the magnitude of the shock providing unemployment insurance extension, mortgage forbearance, in the goal of dampening the shock of a stopped economy. No such stabilizer ensures that state and local governments, which are responsible for nearly half of total public expenditure, are able to continue providing essential public services when their revenues decline sharply. Subject to balanced budget requirements and without such funding measures, our evidence shows that local government service provision is in fact significantly procyclical. 

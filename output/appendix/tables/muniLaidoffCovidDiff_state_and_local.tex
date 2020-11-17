@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{D{.}{.}{-1}}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+                    &\multicolumn{1}{c}{$\Delta$ Muni Laid Off}&\multicolumn{1}{c}{$\Delta$ Muni Laid Off}&\multicolumn{1}{c}{$\Delta$ State Laid Off}&\multicolumn{1}{c}{$\Delta$ State Laid Off}&\multicolumn{1}{c}{$\Delta$ Local Laid Off}&\multicolumn{1}{c}{$\Delta$ Local Laid Off}\\
+\midrule
+Sales Tax Exposure  &        0.42\sym{***}&        0.26\sym{**} &        0.49\sym{***}&        0.36\sym{***}&        0.29\sym{*}  &        0.11         \\
+                    &      (4.24)         &      (2.30)         &      (3.46)         &      (2.79)         &      (1.71)         &      (0.59)         \\
+COVID Infection Rate&                     &      -0.052\sym{**} &                     &      -0.071\sym{*}  &                     &      -0.046         \\
+                    &                     &     (-2.24)         &                     &     (-2.00)         &                     &     (-1.51)         \\
+COVID Death Rate    &                     &        2.29\sym{**} &                     &        3.02\sym{*}  &                     &        2.19\sym{*}  \\
+                    &                     &      (2.14)         &                     &      (1.74)         &                     &      (1.78)         \\
+Log Population      &                     &       0.014\sym{**} &                     &      0.0050         &                     &       0.023\sym{***}\\
+                    &                     &      (2.44)         &                     &      (0.71)         &                     &      (3.10)         \\
+$\Delta$ Private Laid Off&                     &        0.14         &                     &        0.10         &                     &       0.051         \\
+                    &                     &      (1.53)         &                     &      (0.63)         &                     &      (0.30)         \\
+Constant            &       0.026\sym{*}  &       -0.18\sym{**} &   -0.000022         &      -0.071         &       0.052\sym{*}  &       -0.29\sym{***}\\
+                    &      (1.70)         &     (-2.20)         &   (-0.0012)         &     (-0.74)         &      (1.98)         &     (-2.74)         \\
+\midrule
+N                   &          50         &          50         &          50         &          50         &          50         &          50         \\
+$ R^2$              &        0.20         &        0.38         &        0.21         &        0.31         &       0.060         &        0.25         \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{7}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

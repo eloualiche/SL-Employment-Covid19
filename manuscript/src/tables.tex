@@ -1,0 +1,139 @@
+%!TEX root = ../localgov_GL_jpube.tex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{empty}
+\begin{landscape}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ Summary Statistics}
+\label{table:summarystats}
+
+\centering 
+
+\begin{small}
+
+	\input{./tables/summary_SL_covid.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports summary statistics. \textbf{Looks good. Lets make this panel A for State+Local. Then Panel B reports a few variables for state only. We don't need them all...just rainy day funds, sales tax share, delta state laid off. We also might want to discuss if we include any summary states for May/June, depends on how we deal with those in the paper.}
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+\end{table}
+%\thispagestyle{empty}
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{empty}
+\begin{landscape}
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ Short Run Unemployment Response of State and Local Governments: April 2020}
+\label{table:muniLaidoffCovidDiff}
+
+\centering 
+
+\begin{small}
+
+	\input{./tables/muniLaidoffCovidDiff.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports analysis of the change from February to April 2020 in the fraction of state and local government workers who have laid off. The \emph{Sales Tax Dependence} coefficients measure the conditional relationship between the sales tax revenue exposure of governments in a state and the change in the unemployment rate of state and local government workers. Column 2 controls for the COVID-19 infection and death rates in a state as of April 2020, state population, and the change in the layoff rate of private sector workers in the state. Column 3 replaces the dependent variable with the change in the fraction of laid off workers among those classified as healthcare workers in the CPS data. Column 4 adds measures of dependence on other major sources of government tax revenue.   t-statistics for heteroskedasticity-robust standard errors are reported in parenthesis. 
+
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+\end{table}
+\thispagestyle{empty}
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{landscape}
+
+%\begin{sidewaystable}[!ht]
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+\caption{\\ State and Local Government Layoffs and CARES Act Receipts}
+\label{table:layoffCARES}
+
+\centering 
+
+\begin{small}
+
+	\input{../../output/tables/cares_laidoff_april.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports analysis of the relationship between changes in state and local government employment and the amount of CARES Act funding received by a state. \emph{CARES Act Dependence} is defined as the amount of money the state received from the CARES Act relative to the total state and local government revenue in that state in 2018. The first column reports ordinary least squares (OLS) regression results. The second column reports the first stage of instrumenting for \emph{CARES Act Dependence} with an indicator for if a state received funding proportional to population (\emph{Large State}) interacted with the inverse population of the state. Small states received a fixed dollar amount of funding and state population is strongly inversely proportional to \emph{CARES Act Dependence}. Column 3 reports the specification instrumenting for \emph{CARES Act Dependence} as described above. Column 4 replaces the dependent variable with the change in the fraction of laid off workers among those classified as healthcare workers in the CPS data. Column 5 instruments for CARES Act Dependence by rainy day fund terciles.  Column 6 adds \emph{Sales Tax Dependence} as an independent variable in the instrumental variables regression.
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+%\end{sidewaystable}
+\end{table}
+
+\thispagestyle{empty}
+
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{landscape}
+
+% \begin{sidewaystable}[!ht]
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ State Government Layoffs and Rainy Day Fund Balances}
+\label{table:layoffRainyDay}
+
+\centering 
+
+\begin{small}
+
+	\input{./tables/stateLaidOff_rainyday.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports analysis of the employment dynamics of state government workers from February to April 2020. \emph{Rainy Day Fund Exposure} denotes the size of a state's rainy day fund for FY2020 as a fraction of expenditures. The dependent variable is the same as defined in Table~\ref{table:muniLaidoffCovidDiff} except using only state government employees instead of state and local government employees in a state. Column 2 looks at only state employees classified in the CPS as healthcare workers. Column 5 uses as the dependent variable changes in layoffs from February to May 2020. The dependent variable in column 6 is the change in layoffs from February to June 2020.  \emph{Low, Med,} and \emph{High Rainy} are indicators for terciles of rainy day funds as a fraction of annual state expenditures. All specifications control for \emph{COVID Infection Rate}, \emph{COVID Death Rate}, and log state population. All variables are defined as in Table~\ref{table:muniLaidoffCovidDiff}.
+\end{tablenotes}
+\end{footnotesize}
+
+\end{threeparttable}
+\end{center}
+% \end{sidewaystable}
+\end{table}
+
+\thispagestyle{empty}
+
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

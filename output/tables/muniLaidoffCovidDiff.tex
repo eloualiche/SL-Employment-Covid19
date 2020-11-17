@@ -1,0 +1,34 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{D{.}{.}{-1}}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{$\Delta$ Muni Laid Off}&\multicolumn{1}{c}{$\Delta$ Muni Laid Off}&\multicolumn{1}{c}{$\Delta$ Muni Healthcare Laid Off}&\multicolumn{1}{c}{$\Delta$ Muni Laid Off}\\
+\midrule
+Sales Tax Exposure  &        0.42\sym{***}&        0.26\sym{**} &       -0.10         &        0.29\sym{**} \\
+                    &      (4.24)         &      (2.30)         &     (-0.55)         &      (2.51)         \\
+Property Tax Exposure&                     &                     &                     &     -0.0062         \\
+                    &                     &                     &                     &    (-0.056)         \\
+Intergov Exposure   &                     &                     &                     &     -0.0038         \\
+                    &                     &                     &                     &    (-0.023)         \\
+Income Tax Exposure &                     &                     &                     &       0.070         \\
+                    &                     &                     &                     &      (0.52)         \\
+COVID Infection Rate&                     &      -0.052\sym{**} &      -0.050         &      -0.054\sym{**} \\
+                    &                     &     (-2.24)         &     (-1.05)         &     (-2.18)         \\
+COVID Death Rate    &                     &        2.29\sym{**} &        1.00         &        2.34\sym{**} \\
+                    &                     &      (2.14)         &      (0.51)         &      (2.09)         \\
+Log Population      &                     &       0.014\sym{**} &       0.020         &       0.012\sym{*}  \\
+                    &                     &      (2.44)         &      (1.41)         &      (1.92)         \\
+$\Delta$ Private Laid Off&                     &        0.14         &       -0.12         &        0.13         \\
+                    &                     &      (1.53)         &     (-0.75)         &      (1.49)         \\
+Constant            &       0.026\sym{*}  &       -0.18\sym{**} &       -0.21         &       -0.17         \\
+                    &      (1.70)         &     (-2.20)         &     (-1.00)         &     (-1.47)         \\
+\midrule
+Date                &       April         &       April         &       April         &       April         \\
+N                   &          50         &          50         &          50         &          50         \\
+$ R^2$              &        0.20         &        0.38         &       0.030         &        0.38         \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}

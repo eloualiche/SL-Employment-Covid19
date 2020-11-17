@@ -1,0 +1,99 @@
+%!TEX root = ../localgov_GL.tex
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% FONTS %%%%%%%%%%%%%%%%
+\usepackage[OT1]{fontenc}
+\usepackage[english]{babel}
+% \usepackage{fontspec}
+% \setmainfont{Linux Biolinum}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{mathtools}
+\usepackage{paralist}
+\usepackage{comment, slantsc, epigraph, setspace}
+\usepackage{booktabs, lscape, pdflscape, afterpage, floatpag, bbding}
+\usepackage[online, flushleft]{threeparttable}
+\usepackage{dcolumn} % align numbers in tables by decimal point
+\usepackage{tabularx}
+\usepackage{tabu}
+\usepackage{placeins}
+\usepackage{rotating}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% % JF-specific includes:
+\usepackage{indentfirst} % Indent first sentence of a new section.
+% \usepackage{jf} % JF-specific formatting of sections, etc.
+% \usepackage[labelfont=bf,labelsep=period]{caption}   % Format figure captions
+\usepackage[labelfont=bf,labelsep=period]{caption} % Format figure captions
+\captionsetup[table]{labelsep=none, justification=centering}
+% \usepackage[labelsep=newline,justification=centering,labelfont=bf,font=sc]{caption}
+\usepackage{enumerate}
+\usepackage{sparklines}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% GEOMETRY %%%%%%%%%%%%%%%%%%%%%
+\usepackage[margin=1.25in]{geometry} % standard
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{siunitx}  
+% SEE: https://tex.stackexchange.com/questions/2746/aligning-numbers-by-decimal-points-in-table-columns
+% SEE: https://tex.stackexchange.com/questions/48689/siunitx-rounding-in-table-with-parentheses
+\sisetup{
+        % detect-mode,
+        tight-spacing           = false,
+        % group-digits            = false,
+        % input-signs             = ,
+        % input-symbols           = ,
+        % input-open-uncertainty  = ,
+        % input-close-uncertainty = ,
+        table-align-text-pre   = false,
+        table-align-text-post  = false,
+        % round-mode              = figures,
+        % round-precision         = 1,
+        }
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+% SPACES IN TABLES
+% see here: https://tex.stackexchange.com/questions/50352/inserting-a-small-vertical-space-in-a-table/50353
+\newcommand\T{\rule{0pt}{2.6ex}}       % Top strut
+\newcommand\B{\rule[-1.2ex]{0pt}{0pt}} % Bottom strut
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% tikz option s
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{tkz-tab} 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\usetikzlibrary{calc, decorations.pathreplacing}   %allows coordinate calculations.
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{arrows.meta, calc, fit, tikzmark}
+%%%%%%%%%%%
+
+
+%%%%%%%%%%% COLORS
+\PassOptionsToPackage{table,usenames,dvipsnames*,svgnames,hyperref}{xcolor}
+\RequirePackage{xcolor}
+
+\definecolor{light-gray}{gray}{0.85}
+\definecolor{lighter-gray}{gray}{0.95}
+\definecolor{dark-gray}{gray}{0.35}
+\colorlet{halfmaroon}{red!55!black}
+\definecolor{maroon}{RGB}{128, 0, 0}
+
+%%%%%%%%%%% NOTES
+\usepackage[textsize=footnotesize, linecolor=maroon, bordercolor=red,
+            backgroundcolor=lighter-gray, textwidth=2.5cm]{todonotes}
+

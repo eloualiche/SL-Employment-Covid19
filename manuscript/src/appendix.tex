@@ -1,0 +1,369 @@
+%!TEX root = ../localgov_GL_jpube.tex
+
+\subsection*{Data Appendix}
+\label{sec:dataappendix}
+
+The main sample for the analysis in this paper comprises cross-sectional data about state and local governments for the 50 US States. We combine data from several sources on fiscal, employment, and demographic information at state and local levels. 
+
+As described in Section~\ref{sec:data}, we use the Annaul Surveys of State and Local Government Finances from the Census of Governments to measure the fraction of revenues of state and local governments coming from different sources.\footnote{As of August 14, 2020, documentation for the ASSLGF is available here: https://www.census.gov/programs-surveys/gov-finances.html. An archive of the data and documentation is available from the authors upon request.} The ASSLGF files provide detailed estimates of expenditure and revenue for governments at the state and local levels, aggregated by state, from 1967 to 2017. These estimates are based on surveys of state and local governments that occur with differing frequencies and sampling rates depending on the level of government (state, county, city and township, etc.). For years ending in 2 and 7 the survey is comprehensive, for other years annual numbers are imputed from selective sampling. We use the 2017 data to create measures of state and local government exposure to different revenue sources for the regression analysis	. \emph{Sales Tax Exposure} is defined as the ratio of revenue from Sales and Gross Receipts to total Total Revenue. \emph{Income Tax Exposure} combines personal and corporate income taxes. \emph{Intergov Exposure} is defined as the revenue received from higher levels of government (federal government for states, and federal and state for local governments) as a share of total revenues. When we combine state and local governments into a single measure, intergovernmental revenues from the state are netted out. 
+
+We measure employment using the Bureau of Labor Statistics' Current Population Survey (CPS) public use microdata. The data is retrieved from the IPUMS CPS archive at cps.ipums.org. We use the Basic Monthly samples from January to August 2020. All microdata is aggregated using the Final Basic Weights (\emph{wtfinl}) by state, month, worker class (private, federal government, state government, local government to estimate labor force characteristics of each cell. Specifically, we measure the size of the labor force, the number of people employed, number unemployed, and the number who indicate they are laid off. At this level of granularity the number of survey respondents in each cell can be small, and thus the estimates of population levels, and month to month changes in levels can be noisy. To reduce the impact of measurement error we instead focus on ratios. Specifically, we compute the estimated \emph{fraction} of workers who are laid off as the estimated number of workers laid off in a cell divided by the estimated size of the labor force in that cell. Our main variable of interest, $\Delta$\emph{Muni Laid Off}, is the change from February 2020 in the fraction of state and local government workers in a cell classified as laid off. We also compute the change from February in the more standard unemployment rate (employed divided by employed plus unemployed). For most specifications we use respondents of all occupations. We also study employment of healthcare workers specifically, which corresponds to CPS 2020 Occupation codes 3000 through 3655.  We also proxy for the tourism industry share of employment in a state by looking at the fraction of private sector workers classified with CPS 2020 Industry code 8660, ``Traveler accommodation.''
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Effect of Tax Decrease on Public Employment}
+\label{subsec:empirics:generalemp}
+
+While the events unfolding in the Spring of 2020 are remarkable, the response of states to a loss in revenue is not (see \cite{Poterba:1994:FiscalCrises}). 
+We extend our analysis of the impact from local government finances to local public employment to the period spanning 1992 to 2018.
+Expanding the sample sheds light on how specific the Spring 2020 moment is, as we compare the magnitudes of our estimates. 
+Moreover we find that the effect of a loss of tax revenues to employment is persistent, suggesting a long-lasting impact of the COVID-19 crisis on local governments. 
+
+To analyze state and local governments in the long run, we link both the financial files (ASSGF) and the payroll files (ASPEP) from the Census of Governments. 
+In Table~\ref{table:layoffRainyDayPanel} we consider the effect of tax revenues on state and local governments employment. 
+In column 1, we find that local private employment correlates positively with state and local tax revenues combined; a loss in revenue of 10\% corresponds to a decrease of 1\% in private employment, confirming the procyclical nature of local tax revenues.
+In columns 2, 3, and 5, we examine separately the effect of a local change in tax revenues on local employment---for both state and local first, then state only, and finally for local governments only. 
+We find a negative effect of tax revenues on unemployment, echoing the results documented above for the Spring of 2020 in Tables~\ref{table:muniLaidoffCovidDiff} and~\ref{table:muniLaidoffRobustness}. 
+A 10\% decline in local tax receipts correlates with a 1.4\% decrease in local government employment, and a 10\% decline in states' tax receipts correlates with a 0.8\% decline in state employment. 
+
+In column four, we focus on state governments to investigate the role of balanced budget requirements, and the ability of governments to implement counter-cyclical fiscal policy.
+As described in Section~\ref{subsec:RainyDayFunds} and in Table~\ref{table:layoffRainyDay}, we examine the role of rainy day funds in the larger sample.
+We form terciles at the state level for the level of rainy day funds as a fraction of total expenditures; we find that for states with low levels of savings the elasticity of state employment to tax revenues is 15\% larger than for states with sufficient savings (in the highest tercile). 
+This result highlights the role played by the institutional rules imposing balanced budget for state governments, and highlights how constrained states have more cyclical public employment. 
+
+Last we go beyond the contemporaneous cross-sectional relations to evaluate the persistence of the effect of tax revenues on employment. 
+In Table~\ref{table:layoffPersistence}, we show how the effect of state and local government tax revenues on employment persist up to three years, suggesting that tax revenues play a role on public employment beyond their contemporaneous impact. 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX FIGURES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\subsection*{Appendix Figures and Tables}
+
+\clearpage
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SCATTERPLOT OF MAIN SHORT RUN RESULT
+\begin{center}
+\begin{figure}[!ht]
+	\centering
+	\caption{\\ Local Government Unemployment: April 2020 \\
+	{\small Figure~\ref{figure:unconditionalScatterSalesShare} shows the relationship between state and local governments' \emph{Sales Tax Dependence} and the unemployment rate of state and local government workers in that state in April 2020. \emph{Sales Tax Dependence} is defined as the fraction of state and local government revenues derived from sales taxes. The April 2020 unemployment rate among state and local government workers in a state is measured from the April 2020 CPS Survey as the (sampling weighted) fraction of respondents working for state and local governments in a state indicating they had been laid off.}}
+	\label{figure:unconditionalScatterSalesShare}
+	\includegraphics[scale=0.9]{../output/appendix/figures/muni_laidofffrac_salestax_april2020.eps}
+\end{figure}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CARES ACT POPULATION
+
+\begin{center}
+\begin{figure}[!ht]
+	\centering
+	\caption{\\ CARES Funding and State Population. \\
+	{\small Figure~\ref{figure:cares_formula} plots the CARES Act funding received by a state against state population, as measured from 2019 Census estimates. Small states received identical awards of \$1.25 billion, and larger states received funding proportional to their population.}}
+	\includegraphics[scale=1.1]{../output/appendix/figures/cares_formula.pdf}
+	
+	\label{figure:cares_formula}
+\end{figure}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{empty}
+\begin{table} %[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ Breakdown of State and Local Government Employment Declines}
+\label{table:summary_occupation}
+
+\centering 
+
+\begin{small}
+
+  \input{../output/appendix/tables/summary_occupation.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item The table reports occupation-level aggregate summary statistics for state and local government employment in February 2020 and declines through April 2020 from the \emph{Current Population Survey}. Panels A and B report statistics on employment at state and local levels of government, respectively. The first column shows the breakdown of total government employees in the United States by broad categories of occupation. The second column shows the percent change in number of workers in each occupation from February to April 2020 as estimated from the CPS data. The final column reports the share of total declines in employment over this period stemming from each industry.    
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+\end{table}
+\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{empty}
+\begin{table} %[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ Tax Revenues by Population across States}
+\label{table:taxrev2}
+
+\centering 
+
+\begin{small}
+
+  \input{../output/appendix/tables/summary_qtax3.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item The table reports summary statistics of tax revenues per capita for State and Local governments from 1980 to 2017. Panel A reports estimates for State governments. $\sigma(\Delta\text{tax})$ is the standard deviation of the year-on-year growth of taxes by categories across states. Estimates report the average, minimum, maximum, 25th and 75th percentile of the volatility of taxes across states and the same statistics of the average share of tax categories in total taxes. Panel B reports estimates for local governments (county, municipal and township governments). Statistics are the same as in Panel B. Panel C reports the same statistics for state and local government aggregated at the state level from the Census of Governments ASSLGF files.
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+\end{table}
+\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{empty}
+\begin{landscape}
+
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ National Unemployment during the COVID-19 Crisis}
+\label{table:unemp:national1}
+
+\centering 
+
+\begin{small}
+
+  \input{../output/appendix/tables/ts_cps_national2.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item  We report the level of sectoral unemployment from Current Population Survey (CPS), for the four sectors of private, state, local and federal governments. Sectoral unemployment is defined as the number of individuals who are not currently employed and whose last primary job was in a given sector. The sectoral unemployment rate is the ratio of sectoral unemployment scaled by the total number of individuals whose current or last job was in a given sector. The last column summarizes the time series of employment in each sector.
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+\end{table}
+
+\thispagestyle{empty}
+
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% State and Local Separately
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{empty}
+\begin{landscape}
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ Short Run Unemployment Response of State and Local Governments Separately}
+\label{table:muniLaidoffStateandLocal}
+
+\centering 
+
+\begin{small}
+
+	\input{../output/appendix/tables/muniLaidoffCovidDiff_state_and_local.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports robustness analysis of the relationship between public sector employment and the revenue composition of state and local governments. Columns 1 and 2 repeats the first two columns of Table~\ref{table:muniLaidoffCovidDiff}. Columns 3 and 4 reproduce the same specifications changing the dependent variable to the change in employment of \emph{state} government workers. Columns 5 and 6 use as the dependent variable the change in employment of \emph{local} government workers. In all specifications \emph{Sales Tax Exposure} is defined the same way, as the share of state \emph{and} local government revenues coming from sales taxes. All variables are defined as in Table~\ref{table:muniLaidoffCovidDiff}. $t$-statistics for heteroskedasticity-robust standard errors are reported in parenthesis. 
+
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+\end{table}
+\thispagestyle{empty}
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CROSS SECTIONAL LAYOFF ROBUSTNESS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{empty}
+\begin{landscape}
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ Short Run Unemployment Response of State and Local Governments: Robustness}
+\label{table:muniLaidoffRobustness}
+
+\centering 
+
+\begin{small}
+
+	\input{../output/appendix/tables/muniLaidoffRobustness.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports robustness analysis of the relationship between public sector employment and the revenue composition of state and local governments. Column 1 repeats the specification of Column 4 of Table~\ref{table:muniLaidoffCovidDiff} and adds as a control \emph{Tourism Employment}, the fraction of private sector employees in the state employed in the tourism industry as estimated in the CPS in February 2020. Column 2 replaces the dependent variable with the standard measure of the unemployment rate, the (sampling weighted) number of respondents in a geographic and sectoral category classified as unemployed relative to the total number of respondents in that category. Column 3 replaces the dependent variable with a measure of the change in workers moved from full to part time employment. Column 4 reports placebo results using as the dependent variable the change in the laid off fraction between November 2019 and January 2020. Column 5 reports placebo results using as the dependent variable the change from February to April 2020 in the laid off fraction of federal government workers in a given state. All variables are defined as in Table~\ref{table:muniLaidoffCovidDiff}. $t$-statistics for heteroskedasticity-robust standard errors are reported in parenthesis. 
+
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+\end{table}
+\thispagestyle{empty}
+\end{landscape}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CROSS SECTIONAL LAYOFF ROBUSTNESS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \pagestyle{empty}
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+\caption{\\ Evolution of Local Government Unemployment Elasticities}
+\label{table:mediumrun}
+
+\centering 
+
+\begin{small}
+
+	\input{../output/appendix/tables/april_thru_august_combined.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports the relationship between state and local goverment worker layoffs and different measures of fiscal revenue sensitivity each month from April to August 2020. Each regression is estimated as a Seemingly Unrelated Regression (SUR) specification stacking separate cross-sectional regressions across the five months. Each month has its own set of control variables. Column 1 reports the evolution of the relationship between layoffs and sales tax share of revenues and uses the general specification in column 4 of Table~\ref{table:muniLaidoffCovidDiff}. Column 2 uses the size of the states CARES act funding relative to its annual revenues and uses the general specification of column 1 of Table~\ref{table:layoffCARES}. Column 3 uses the size of rainy day funds relative to annual expenditures as the independent variable and uses the general specification of column 1 of Table~\ref{table:layoffRainyDay}. $t$-statistics for standard errors clustered at the state level are reported in parenthesis. 
+
+\end{tablenotes}
+\end{footnotesize}
+\end{threeparttable}
+\end{center}
+\end{table}
+\thispagestyle{empty}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{landscape}
+
+% \begin{sidewaystable}[!ht]
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+
+\caption{\\ Employment and Local Government Tax Revenues}
+\label{table:layoffRainyDayPanel}
+
+\centering 
+
+\begin{small}
+
+	\input{../output/appendix/tables/muniEmployPanel.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports panel regression analysis of the relationship between public sector employment and state and local government tax revenues. The data is at the annual frequency by state, covering 1991 to 2017 (excluding 1995 due to data issues). Dependent variables are the natural log of the one-year-forward number of employment in the sector indicated in the column heading. The dependent variable in column 1 is the log number of private sector workers from the CES. \emph{State and Local Emp.}, \emph{State Emp.}, and \emph{Local Emp.} are log employment from the Annual Survey of Public Employment and Payroll (ASPEP). Terciles of rainy day fund balances are computed with respect to the full regression sample.  Standard errors are clustered by state and year.
+\end{tablenotes}
+\end{footnotesize}
+
+\end{threeparttable}
+\end{center}
+% \end{table}
+% \end{sidewaystable}
+
+\end{table}
+
+\thispagestyle{empty}
+\end{landscape}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{landscape}
+
+% \begin{sidewaystable}[!ht]
+\begin{table}[!ht]
+\begin{center}
+\begin{threeparttable}
+
+
+\caption{\\ Persistence of Employment and Local Government Tax Revenues }
+\label{table:layoffPersistence}
+
+\centering 
+
+\begin{small}
+
+	\input{../output/appendix/tables/table_ols_publicemp_full_horizon.tex}
+
+\end{small}
+
+\begin{footnotesize}
+\begin{tablenotes}
+\item This table reports analysis of the relationship between log state and local government tax revenues and log public sector employment at various time horizons. Each reported coefficient is from a separate panel regression. Definition of  variables are in Table~\ref{table:layoffRainyDayPanel}. Standard errors are clustered by state and year and are reported in parentheses.
+\end{tablenotes}
+\end{footnotesize}
+
+\end{threeparttable}
+\end{center}
+% \end{table}
+% \end{sidewaystable}
+
+\thispagestyle{empty}
+
+\end{table}
+% \end{landscape}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+

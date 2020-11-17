@@ -1,0 +1,36 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{D{.}{.}{-1}}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+                    &\multicolumn{1}{c}{$\Delta$ Muni Laid Off}&\multicolumn{1}{c}{$\Delta$ Muni Laid Off}&\multicolumn{1}{c}{$\Delta$ Muni U/R}&\multicolumn{1}{c}{$\Delta$ Muni Laid Off}&\multicolumn{1}{c}{$\Delta$ Part Time}\\
+\midrule
+Sales Tax Exposure  &        0.28\sym{**} &        0.36\sym{**} &        0.51         &     -0.0083         &      -0.078         \\
+                    &      (2.09)         &      (2.30)         &      (1.67)         &     (-0.24)         &     (-0.38)         \\
+Property Tax Exposure&     -0.0041         &      0.0099         &       -0.16         &     -0.0038         &       0.042         \\
+                    &    (-0.037)         &     (0.062)         &     (-0.61)         &     (-0.13)         &      (0.16)         \\
+Intergov Exposure   &     -0.0014         &       0.014         &       0.014         &      -0.054         &      -0.077         \\
+                    &   (-0.0079)         &     (0.073)         &     (0.039)         &     (-1.19)         &     (-0.37)         \\
+Income Tax Exposure &       0.069         &        0.13         &        0.23         &      0.0047         &       -0.32\sym{*}  \\
+                    &      (0.51)         &      (0.96)         &      (0.97)         &      (0.24)         &     (-1.90)         \\
+COVID Infection Rate&      -0.055\sym{**} &      -0.051\sym{**} &      -0.087         &    -0.00092         &       0.024         \\
+                    &     (-2.14)         &     (-2.27)         &     (-1.53)         &     (-0.17)         &      (0.73)         \\
+COVID Death Rate    &        2.38\sym{**} &        2.03\sym{**} &        3.50         &       0.060         &       -1.49         \\
+                    &      (2.06)         &      (2.17)         &      (1.38)         &      (0.27)         &     (-1.34)         \\
+Log Population      &       0.013\sym{*}  &       0.018\sym{**} &       0.031\sym{**} &     -0.0016         &     -0.0072         \\
+                    &      (1.78)         &      (2.50)         &      (2.08)         &     (-0.84)         &     (-0.73)         \\
+$\Delta$ Private Laid Off&        0.13         &        0.12         &      -0.092         &       -0.50\sym{*}  &        0.38\sym{**} \\
+                    &      (1.13)         &      (0.99)         &     (-0.36)         &     (-1.73)         &      (2.51)         \\
+Tourism Employment  &       0.089         &       0.042         &       -0.55         &       -0.20         &       -0.74         \\
+                    &      (0.13)         &     (0.054)         &     (-0.43)         &     (-1.14)         &     (-0.94)         \\
+Constant            &       -0.17         &       -0.27\sym{**} &       -0.40         &       0.042         &        0.17         \\
+                    &     (-1.39)         &     (-2.27)         &     (-1.63)         &      (1.16)         &      (0.97)         \\
+\midrule
+Date                &       April         &       April         &       April         &     January         &       April         \\
+N                   &          50         &          50         &          50         &          50         &          50         \\
+$ R^2$              &        0.38         &        0.43         &        0.33         &        0.19         &        0.20         \\
+\bottomrule
+\multicolumn{6}{l}{\footnotesize \textit{t} statistics in parentheses}\\
+\multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}
