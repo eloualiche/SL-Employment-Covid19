@@ -97,9 +97,9 @@ build_paper:
 # - generate figures for website
 build_website_figures:
 	pdf2png -s @2x -i output/figures/cares_logpop_rf_no_controls.pdf -o output/figures/cares_logpop_rf_no_controls
-	pdf2png -s @4x -i output/figures/cares_logpop_rf_no_controls.pdf -o output/figures/cares_logpop_rf_no_controls
 	pdf2png -s @8x -i output/figures/cares_logpop_rf_no_controls.pdf -o output/figures/cares_logpop_rf_no_controls
 	mv output/figures/cares_logpop_rf_no_controls@8x.png output/figures/cares_logpop_rf_no_controls.png
+	cp output/figures/cares_logpop_rf_no_controls.png docs/figures/
 
 
 # - clean 
