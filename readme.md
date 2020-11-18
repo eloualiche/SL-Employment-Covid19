@@ -9,6 +9,9 @@ This repository contains the replication files for Daniel Green and Erik Loualic
 
 
 
+![](output/figures/cares_logpop_rf_no_controls@2x.png)
+
+
 ## Code
 
 There is a `makefile` to generate all the tables and figures in the paper: simply run `make` from within the folder. 

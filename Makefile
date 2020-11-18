@@ -20,7 +20,14 @@ all: unzip_data \
 
 # --- Unzip the data 
 unzip_data:
+	unzip_data:
 	tar xf data.zip
+	mkdir -p code/log
+	mkdir -p derived
+	mkdir -p output
+	mkdir -p output/appendix
+	mkdir -p output/figures
+	mkdir -p output/tables
 	$(TIME-END)
 	@echo 
 
@@ -83,6 +90,16 @@ build_paper:
 	mv manuscript/localgov_GL_jpube.pdf ./
 	$(TIME-END)
 	@echo
+# ------------------------------------------------------------------------------------------
+
+
+# ------------------------------------------------------------------------------------------
+# - generate figures for website
+build_website_figures:
+	pdf2png -s @2x -i output/figures/cares_logpop_rf_no_controls.pdf -o output/figures/cares_logpop_rf_no_controls
+	pdf2png -s @8x -i output/figures/cares_logpop_rf_no_controls.pdf -o output/figures/cares_logpop_rf_no_controls
+	mv output/figures/cares_logpop_rf_no_controls@8x.png output/figures/cares_logpop_rf_no_controls.png
+
 
 # - clean 
 clean.all: 
