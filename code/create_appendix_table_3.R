@@ -1,3 +1,16 @@
+#! /usr/bin/env R
+#
+#
+# (c) Daniel Green and Erik Loualiche
+# 
+# Replication code for _State and Local Government Employment in the COVID-19 Crisis_
+# Journal of Public Economics 
+#
+# This file builds Appendix Table 3
+# #
+# --------------------------------------------------------------------------------------
+
+
 # ------------------------------------------------------------------------------------------
 library(devtools)
 library(crayon)
@@ -31,10 +44,3 @@ dt_cps_us[]
 
 brew("../data/tables_to_brew/ts_cps_national2.brew.tex", "../output/appendix/tables/ts_cps_national2.tex")
 # ------------------------------------------------------------------------------------------
-
-# prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-02-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)
-# prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-03-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F) 
-# prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-04-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F) 
-#  prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-05-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  
-#  prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-06-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F) 
-# sparkline(dt_cps_us[classwkr==22 & date <=as.Date("2020-06-01")][["unemployed_national"]],  enddotcolor="red", bottomline=TRUE) 

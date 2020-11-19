@@ -25,8 +25,6 @@ library(readxl)
 library(haven)
 library(brew)
 library(fst)
-library(Hmisc)
-library(mFilter) # hp filters
 library(readr)
 library(dplyr)
 library(data.table)
@@ -38,12 +36,12 @@ library(statar)
 # Other data
 dt_fips_state <- fread("../data/fips_state.csv")
 setnames(dt_fips_state, c("name", "fips", "state"))
-dt_fips_state[]
+# dt_fips_state[]
 
 dt_pop_raw <- haven::read_dta("../data/state_pop.dta") %>% data.table
 dt_pop_raw <- merge(dt_pop_raw[, .(year, fips=as.integer(fips), pop)], dt_fips_state, by = "fips")
 dt_pop <- dt_pop_raw[year==2019, .(state, pop, fips, state_name=name) ]
-dt_pop[]  # population is in #
+# dt_pop[]  # population is in #
 
 # --------------------------------------------------------------------------------
 
@@ -59,7 +57,7 @@ dt_munis[, total_tax := sum(amount, na.rm=T), by = .(date_y, type, state, fips, 
 dt_munis <- rbind(dt_munis, fill = TRUE,
                   unique(dt_munis[, .(date_y, state, fips, fips_county, type, name, gov_id, amount=total_tax, total_tax, item_code="TOT")])  )
 dt_munis[, tax_share := amount / total_tax ]
-dt_munis[]
+# dt_munis[]
 
 # do the time series .... this might be a little sketchy because of sampling so we aggregate at state level first
 dt1 <- dt_munis[, .(tax=sum(amount, na.rm=T)), by = .(state, item_code, date_y) ]
@@ -73,7 +71,7 @@ dt1[, c("T01", "T09", "T40", "T41", "T40-41", "TOT") := lapply(.SD, winsorize), 
 dt1 <- dt1[, .(unlist(lapply(.SD, my_summary)), c("avg", "min", "max", "cs", "p25", "p75") ), .SDcols=c("T01", "T09", "T40", "T41", "T40-41", "TOT") ]
 dt1[, tax_name := CJ(c("T01", "T09", "T40", "T41", "T40-41", "TOT"), seq(1,6), ordered=F)[["V1"]] ]
 dt1 <- dcast(dt1, tax_name ~ V2, value.var = "V1")
-dt1[]
+# dt1[]
 
 
 # do share
@@ -85,7 +83,7 @@ dt2 <- dcast(dt2, state ~ item_code, value.var=c("tax_share"))
 dt2 <- dt2[, .(unlist(lapply(.SD, my_summary)), c("avg", "min", "max", "cs", "p25", "p75") ), .SDcols=c("T01", "T09", "T40", "T41", "T40-41") ]
 dt2[, tax_name := CJ(c("T01", "T09", "T40", "T41", "T40-41"), seq(1,6), ordered=T)[["V1"]] ]
 dt2 <- dcast(dt2, tax_name ~ V2, value.var = "V1")
-dt2[]
+# dt2[]
 
 #  --------------------------------
 # SECOND TABLE: SECOND PANEL LOCAL GOVERNMENTS
@@ -96,7 +94,7 @@ dt_munis[, total_tax := sum(amount, na.rm=T), by = .(date_y, type, state, fips, 
 dt_munis <- rbind(dt_munis, fill = TRUE,
                   unique(dt_munis[, .(date_y, state, fips, fips_county, type, name, gov_id, amount=total_tax, total_tax, item_code="TOT")])  )
 dt_munis[, tax_share := amount / total_tax ]
-dt_munis[]
+# dt_munis[]
 
 # do the time series .... this might be a little sketchy because of sampling so we aggregate at state level first
 dt3 <- dt_munis[, .(tax=sum(amount, na.rm=T)), by = .(state, item_code, date_y) ]
@@ -110,7 +108,7 @@ dt3[, c("T01", "T09", "TOT") := lapply(.SD, winsorize), .SDcols=c("T01", "T09", 
 dt3 <- dt3[, .(unlist(lapply(.SD, my_summary)), c("avg", "min", "max", "cs", "p25", "p75") ), .SDcols=c("T01", "T09", "TOT") ]
 dt3[, tax_name := CJ(c("T01", "T09", "TOT"), seq(1,6))[["V1"]] ]
 dt3 <- dcast(dt3, tax_name ~ V2, value.var = "V1")
-dt3[]
+# dt3[]
 
 # do share
 dt4 <- dt_munis[, .(tax=sum(amount, na.rm=T), total_tax=sum(total_tax, na.rm=T)), by = .(state, item_code, date_y) ]
@@ -121,7 +119,7 @@ dt4 <- dcast(dt4, state ~ item_code, value.var=c("tax_share"))
 dt4 <- dt4[, .(unlist(lapply(.SD, my_summary)), c("avg", "min", "max", "cs", "p25", "p75") ), .SDcols=c("T01", "T09") ]
 dt4[, tax_name := CJ(c("T01", "T09"), seq(1,6))[["V1"]] ]
 dt4 <- dcast(dt4, tax_name ~ V2, value.var = "V1")
-dt4[]
+# dt4[]
 
 #  --------------------------------
 # SECOND TABLE: THIRD PANEL STATE & LOCAL GOVERNMENTS

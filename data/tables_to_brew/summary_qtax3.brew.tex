@@ -1,0 +1,314 @@
+<%
+options(digits = 3) 
+# careful do not use & as it is protected by latex
+n_col = 5
+# dt_brew
+%>
+
+
+%\begin{table}[hbt]
+%\begin{threeparttable}[b]
+%\caption{Asset Pricing: Portfolios Sorted on both Elasticities: $\zeta_h$ and $\eta_h$}
+%\label{table:elasticty-all-1}
+%\begin{small}
+% \setlength{\tabcolsep}{0.5\tabcolsep}
+%{\textwidth}
+
+ % \begin{tabular*}{1\textwidth}{@{}l@{\extracolsep{\fill}} <%= paste0( rep("Y", n_col), collapse = "") %> @{}} 
+\begin{tabular*}{0.85\textwidth}{@{}l <%= paste0( rep("Y", n_col), collapse = "") %> @{ }} 
+
+
+\cmidrule[1.0pt](l{-1em} r{-1em}){1-<%= (n_col+1) %>} 
+\addlinespace
+
+% \cmidrule[1pt](l{0.5em} r{0.5em}){2-<%=(n_col+1)%>} 
+%  & \multicolumn{<%= n_col %>}{c}{Panel A: Summary Statistics across Elasticity Groups, $\zeta$} \\
+% \cmidrule[0.5pt](l{0.5em} r{0.5em}){2-<%=(n_col+1)%>} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\multicolumn{1}{c}{} & 
+\multicolumn{5}{c}{Panel A. State Governments} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-6}
+
+
+% Set up the first
+& 
+   \multicolumn{1}{c}{Average} & 
+   \multicolumn{1}{c}{Min} & 
+   \multicolumn{1}{c}{25th pct.} & 
+   \multicolumn{1}{c}{75th pct.} & 
+   \multicolumn{1}{c}{Max} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-2}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){3-3}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){4-4}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){5-5}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){6-6}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\multicolumn{1}{l}{Total Tax Revenues} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt1[ tax_name=="TOT" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="TOT" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="TOT" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="TOT" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="TOT" ][["max"]]), 3) %> 
+\\
+
+\addlinespace
+
+\multicolumn{1}{l}{Sales Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt1[ tax_name=="T09" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T09" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T09" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T09" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T09" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= as.numeric(dt2[ tax_name=="T09" ][["avg"]]) %> &
+<%= round(as.numeric(dt2[ tax_name=="T09" ][["min"]]), 3) %> &
+<%= as.numeric(dt2[ tax_name=="T09" ][["p25"]]) %> &
+<%= as.numeric(dt2[ tax_name=="T09" ][["p75"]]) %> &
+<%= as.numeric(dt2[ tax_name=="T09" ][["max"]]) %> 
+\\
+
+% \addlinespace
+
+\multicolumn{1}{l}{Indiv. Income Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt1[ tax_name=="T40" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T40" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T40" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T40" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T40" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= as.numeric(dt2[ tax_name=="T40" ][["avg"]]) %> &
+<%= round(as.numeric(dt2[ tax_name=="T40" ][["min"]]), 3) %> &
+<%= as.numeric(dt2[ tax_name=="T40" ][["p25"]]) %> &
+<%= as.numeric(dt2[ tax_name=="T40" ][["p75"]]) %> &
+<%= as.numeric(dt2[ tax_name=="T40" ][["max"]]) %> 
+\\
+
+% \addlinespace
+
+\multicolumn{1}{l}{Corp. Income Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt1[ tax_name=="T41" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T41" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T41" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T41" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt1[ tax_name=="T41" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= round(as.numeric(dt2[ tax_name=="T41" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt2[ tax_name=="T41" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt2[ tax_name=="T41" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt2[ tax_name=="T41" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt2[ tax_name=="T41" ][["max"]]), 3) %> 
+\\
+
+\addlinespace
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-6}
+
+\multicolumn{1}{c}{} & 
+\multicolumn{5}{c}{Panel B. Local Governments} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\multicolumn{1}{l}{Total Tax Revenues} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= as.numeric(dt3[ tax_name=="TOT" ][["avg"]]) %> &
+<%= round(as.numeric(dt3[ tax_name=="TOT" ][["min"]]), 3) %> &
+<%= as.numeric(dt3[ tax_name=="TOT" ][["p25"]]) %> &
+<%= as.numeric(dt3[ tax_name=="TOT" ][["p75"]]) %> &
+<%= as.numeric(dt3[ tax_name=="TOT" ][["max"]]) %> 
+\\
+
+\addlinespace
+
+\multicolumn{1}{l}{Property Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= as.numeric(dt3[ tax_name=="T01" ][["avg"]]) %> &
+<%= round(as.numeric(dt3[ tax_name=="T01" ][["min"]]), 3) %> &
+<%= as.numeric(dt3[ tax_name=="T01" ][["p25"]]) %> &
+<%= as.numeric(dt3[ tax_name=="T01" ][["p75"]]) %> &
+<%= as.numeric(dt3[ tax_name=="T01" ][["max"]]) %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= as.numeric(dt4[ tax_name=="T01" ][["avg"]]) %> &
+<%= as.numeric(dt4[ tax_name=="T01" ][["min"]]) %> &
+<%= as.numeric(dt4[ tax_name=="T01" ][["p25"]]) %> &
+<%= as.numeric(dt4[ tax_name=="T01" ][["p75"]]) %> &
+<%= as.numeric(dt4[ tax_name=="T01" ][["max"]]) %> 
+\\
+
+% \addlinespace
+
+\multicolumn{1}{l}{Sales Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= as.numeric(dt3[ tax_name=="T09" ][["avg"]]) %> &
+<%= round(as.numeric(dt3[ tax_name=="T09" ][["min"]]), 3) %> &
+<%= as.numeric(dt3[ tax_name=="T09" ][["p25"]]) %> &
+<%= as.numeric(dt3[ tax_name=="T09" ][["p75"]]) %> &
+<%= as.numeric(dt3[ tax_name=="T09" ][["max"]]) %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= as.numeric(dt4[ tax_name=="T09" ][["avg"]]) %> &
+<%= round(as.numeric(dt4[ tax_name=="T09" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt4[ tax_name=="T09" ][["p25"]]), 3) %> &
+<%= as.numeric(dt4[ tax_name=="T09" ][["p75"]]) %> &
+<%= as.numeric(dt4[ tax_name=="T09" ][["max"]]) %> 
+\\
+
+\addlinespace
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-6}
+
+\multicolumn{1}{c}{} & 
+\multicolumn{5}{c}{Panel C. State \& Local Governments} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\multicolumn{1}{l}{Total Tax Revenues} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt5[ tax_name=="TOT" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="TOT" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="TOT" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="TOT" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="TOT" ][["max"]]), 3) %> 
+\\
+
+\addlinespace
+
+\multicolumn{1}{l}{Property Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt5[ tax_name=="T01" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T01" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T01" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T01" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T01" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= as.numeric(dt6[ tax_name=="T01" ][["avg"]]) %> &
+<%= as.numeric(dt6[ tax_name=="T01" ][["min"]]) %> &
+<%= as.numeric(dt6[ tax_name=="T01" ][["p25"]]) %> &
+<%= as.numeric(dt6[ tax_name=="T01" ][["p75"]]) %> &
+<%= as.numeric(dt6[ tax_name=="T01" ][["max"]]) %> 
+\\
+
+% \addlinespace
+
+\multicolumn{1}{l}{Sales Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt5[ tax_name=="T09" ][["avg"]]), 3)  %> &
+<%= round(as.numeric(dt5[ tax_name=="T09" ][["min"]]), 3)  %> &
+<%= round(as.numeric(dt5[ tax_name=="T09" ][["p25"]]), 3)  %> &
+<%= round(as.numeric(dt5[ tax_name=="T09" ][["p75"]]), 3)  %> &
+<%= round(as.numeric(dt5[ tax_name=="T09" ][["max"]]), 3)  %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= as.numeric(dt6[ tax_name=="T09" ][["avg"]]) %> &
+<%= round(as.numeric(dt6[ tax_name=="T09" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T09" ][["p25"]]), 3) %> &
+<%= as.numeric(dt6[ tax_name=="T09" ][["p75"]]) %> &
+<%= as.numeric(dt6[ tax_name=="T09" ][["max"]]) %> 
+\\
+
+
+% \addlinespace
+
+\multicolumn{1}{l}{Indiv. Income Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt5[ tax_name=="T40" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T40" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T40" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T40" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T40" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= round(as.numeric(dt6[ tax_name=="T40" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T40" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T40" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T40" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T40" ][["max"]]), 3) %> 
+\\
+
+% \addlinespace
+
+\multicolumn{1}{l}{Corp. Income Tax} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+<%= round(as.numeric(dt5[ tax_name=="T41" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T41" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T41" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T41" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt5[ tax_name=="T41" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad Share of total rev.} & 
+<%= round(as.numeric(dt6[ tax_name=="T41" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T41" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T41" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T41" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt6[ tax_name=="T41" ][["max"]]), 3) %> 
+\\
+
+           
+\cmidrule[1.5pt](l{-1em} r{-1em}){1-<%= (n_col+1) %>} 
+
+
+\end{tabular*}

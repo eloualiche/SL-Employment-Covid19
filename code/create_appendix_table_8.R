@@ -6,7 +6,7 @@
 # Replication code for _State and Local Government Employment in the COVID-19 Crisis_
 # Journal of Public Economics 
 #
-# This file builds the main Census of Governments datasets
+# This file builds Appendix Table 8
 #
 # --------------------------------------------------------------------------------------
 
@@ -14,20 +14,14 @@
 # ------------------------------------------------------------------------------------------
 library(devtools)
 library(crayon)
-
-# normal stuff
 library(glue)
 library(stringr)
 library(lubridate)
-library(readr)
-library(Hmisc)
 library(haven)
-library(skimr)
 library(fredr)
 library(fst)
 library(lfe)
 library(brew)
-library(texreg)
 library(stargazer)
 library(data.table)
 library(statar)
@@ -76,13 +70,14 @@ dt3 <- dt_sl_agg[type!=0, .(value = sum(value, na.rm=T)), by = .(date_y, state, 
 dt_sl_agg <- rbind(dt1[, lvl_code := 1], dt2[, lvl_code := 2], dt3[, lvl_code := 3] )
 dt_sl_agg <- dt_sl_agg[ variable %in% c("GAL_revenue", "IG_fed_revenue", "TAX_revenue",
                                         "PROPTAX_revenue", "SALESTAX_revenue", "INCMTAX_revenue", "CORPTAX_revenue", "OTHTAX_revenue") ]
-dt_sl_agg %>% tab(variable)
+# dt_sl_agg %>% tab(variable)
 
 dt_sl_agg_wide <- dcast(dt_sl_agg, date_y + state ~ variable + lvl_code, value.var = "value")
 setnames(dt_sl_agg_wide, gsub("_1", "_SL", colnames(dt_sl_agg_wide)) )
 setnames(dt_sl_agg_wide, gsub("_2", "_S",  colnames(dt_sl_agg_wide)) )
 setnames(dt_sl_agg_wide, gsub("_3", "_L",  colnames(dt_sl_agg_wide)) )
 # ------------------------------------------------------------------------------------------
+
 
 
 # ------------------------------------------------------------------------------------------
@@ -134,14 +129,13 @@ dt_reg[, `:=`(log_TAX_revenue_SL=log(TAX_revenue_SL), log_TAX_revenue_S=log(TAX_
 
 # ------------------------------------------------------------------------------------------
 # ANNUAL REGRESSION
-
 # --- make the dataset annual by removing superfluous variables
-dt_reg_short <- dt_reg[, -c("classwkr", "emp_ces", "log_emp_ces", "log_total_taxes", "gdpdef")] %>% unique
+dt_reg_short <- dt_reg[, -c("classwkr", "emp_ces", "log_emp_ces", "gdpdef")] %>% unique
 
 # remove quarterly taxes
 dt_reg_short <- dt_reg_short[ !is.na(dateq) ] %>% unique
 dt_reg_short <- dt_reg_short[ quarter(dateq) == 4 ]
-dt_reg_short <- dt_reg_short[, -c("dateq", "datem", "time_trend", "date_fac", "time_fac", "lforce", "civil_pop") ] %>% unique
+dt_reg_short <- dt_reg_short[, -c("dateq", "datem") ] %>% unique
 # dt_reg_short <- dt_reg_short[ is.finite(log_emp_SL) ]
 dt_reg_short[]
 

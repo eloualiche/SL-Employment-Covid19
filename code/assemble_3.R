@@ -25,13 +25,10 @@ library(readr)
 library(haven);
 library(readxl);
 library(lubridate)
-library(ggplot2)
 library(progress);
 library(fst);
 library(data.table); library(bit64)
 library(statar)
-
-library(skimr)
 # --------------------------------------------------------------------------------------
 
 # --------------------------------------------------------------------------------------
@@ -100,7 +97,7 @@ dt_micro[ emp_full_time == "9999999999", `:=`(emp_full_time=NA, payroll_full_tim
   emp_part_time=NA, payroll_part_time=NA, hours_part_time=NA, emp_full_time_equivalent=NA) ]
 
 # --- SAVE
-write_dta(dt_micro, "../derived/micro_publicuse_emp_1992_2018.dta")
+# write_dta(dt_micro, "../derived/micro_publicuse_emp_1992_2018.dta")
 # --------------------------------------------------------------------------------------
 
 

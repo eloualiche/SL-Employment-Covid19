@@ -1,0 +1,140 @@
+<%
+options(digits = 3) 
+# careful do not use & as it is protected by latex
+n_col = 3
+# dt_brew
+%>
+
+
+%\begin{table}[hbt]
+%\begin{threeparttable}[b]
+%\caption{Asset Pricing: Portfolios Sorted on both Elasticities: $\zeta_h$ and $\eta_h$}
+%\label{table:elasticty-all-1}
+%\begin{small}
+% \setlength{\tabcolsep}{0.5\tabcolsep}
+%{\textwidth}
+
+ % \begin{tabular*}{1\textwidth}{@{}l@{\extracolsep{\fill}} <%= paste0( rep("Y", n_col), collapse = "") %> @{}} 
+\begin{tabular*}{0.85\textwidth}{@{}l <%= paste0( rep("Y", n_col), collapse = "") %> @{ }} 
+
+
+\cmidrule[1.0pt](l{-1em} r{-1em}){1-<%= (n_col+1) %>} 
+\addlinespace
+
+% \cmidrule[1pt](l{0.5em} r{0.5em}){2-<%=(n_col+1)%>} 
+%  & \multicolumn{<%= n_col %>}{c}{Panel A: Summary Statistics across Elasticity Groups, $\zeta$} \\
+% \cmidrule[0.5pt](l{0.5em} r{0.5em}){2-<%=(n_col+1)%>} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\multicolumn{1}{c}{} & 
+\multicolumn{3}{c}{Panel A. State Governments Employment by Occupations} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-4}
+
+
+% Set up the first
+& 
+   \multicolumn{1}{c}{Employment by Occupation} & 
+   \multicolumn{1}{c}{Change in Employment} & 
+   \multicolumn{1}{c}{Fraction of Total Layoffs} \\
+
+& 
+   \multicolumn{1}{c}{(pct. in Feb.)} & 
+   \multicolumn{1}{c}{(in pct. from Feb. to Apr.)} & 
+   \multicolumn{1}{c}{(in pct. of total change)} 
+   \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-2}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){3-3}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){4-4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\multicolumn{1}{l}{Education} &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Education" ][["frac_emp_2_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Education" ][["change_emp_pct_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Education" ][["frac_change_emp_27"]]), 2) %> \\
+
+\multicolumn{1}{l}{Administrative}  &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Administrative" ][["frac_emp_2_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Administrative" ][["change_emp_pct_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Administrative" ][["frac_change_emp_27"]]), 2) %> \\
+
+\multicolumn{1}{l}{Healthcare} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="Healthcare" ][["frac_emp_2_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Healthcare" ][["change_emp_pct_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Healthcare" ][["frac_change_emp_27"]]), 2) %> \\
+
+\multicolumn{1}{l}{Protective Services} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="Protective service" ][["frac_emp_2_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Protective service" ][["change_emp_pct_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Protective service" ][["frac_change_emp_27"]]), 2) %> \\
+
+\multicolumn{1}{l}{Management} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="Management" ][["frac_emp_2_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Management" ][["change_emp_pct_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Management" ][["frac_change_emp_27"]]), 2) %> \\
+
+\multicolumn{1}{l}{Other} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="other" ][["frac_emp_2_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="other" ][["change_emp_pct_27"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="other" ][["frac_change_emp_27"]]), 2) %> \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-4}
+
+\multicolumn{1}{c}{} & 
+\multicolumn{3}{c}{Panel B. Local Governments} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\multicolumn{1}{l}{Education} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="Education" ][["frac_emp_2_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Education" ][["change_emp_pct_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Education" ][["frac_change_emp_28"]]), 2) %> \\
+
+\multicolumn{1}{l}{Administrative} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="Administrative" ][["frac_emp_2_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Administrative" ][["change_emp_pct_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Administrative" ][["frac_change_emp_28"]]), 2) %> \\
+
+\multicolumn{1}{l}{Healthcare} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="Healthcare" ][["frac_emp_2_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Healthcare" ][["change_emp_pct_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Healthcare" ][["frac_change_emp_28"]]), 2) %> \\
+
+\multicolumn{1}{l}{Protective Services} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="Protective service" ][["frac_emp_2_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Protective service" ][["change_emp_pct_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Protective service" ][["frac_change_emp_28"]]), 2) %> \\
+
+\multicolumn{1}{l}{Management} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="Management" ][["frac_emp_2_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Management" ][["change_emp_pct_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="Management" ][["frac_change_emp_28"]]), 2) %> \\
+
+\multicolumn{1}{l}{Other} & 
+<%= round(as.numeric(dt_occ_table[ occ_group=="other" ][["frac_emp_2_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="other" ][["change_emp_pct_28"]]), 2) %> &
+<%= round(as.numeric(dt_occ_table[ occ_group=="other" ][["frac_change_emp_28"]]), 2) %> \\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+           
+\cmidrule[1.5pt](l{-1em} r{-1em}){1-<%= (n_col+1) %>} 
+
+
+\end{tabular*}

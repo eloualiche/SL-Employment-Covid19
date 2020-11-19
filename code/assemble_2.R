@@ -129,7 +129,7 @@ setnames(dt_lau_state_industry, "value", "emp")
 dt_lau_state_industry[, emp := as.numeric(emp) ]
 
 # --- save in dta (and zip)
-write_dta(dt_lau_state_industry, "../derived/LAU_industry_state.dta")
+# write_dta(dt_lau_state_industry, "../derived/LAU_industry_state.dta")
 # --------------------------------------------------------------------------------------
 
 
@@ -137,7 +137,7 @@ write_dta(dt_lau_state_industry, "../derived/LAU_industry_state.dta")
 # CES LAU DATA: aggregates
 
 # Split private by supersector and government
-dt_lau_state_industry <- read_dta("../derived/LAU_industry_state.dta") %>% data.table
+# dt_lau_state_industry <- read_dta("../derived/LAU_industry_state.dta") %>% data.table
 
 dt_lau_private <- dt_lau_state_industry[, .(emp = sum(emp, na.rm=T)), 
 	by = .(date, state_name, supersector_name, supersector_code) ]

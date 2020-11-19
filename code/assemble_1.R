@@ -232,18 +232,11 @@ dt_cog <- rbind(
   dt_gov_modern[ date_y < 2012 ], fill = TRUE)
 dt_cog[, item_cat := str_sub(item_code, 1, 1) ]
 setorder(dt_cog, date_y, state_code)
-
-write_fst(dt_cog[, .(date_y, state_code, type, fips, fips_county, unit_id, item_code, amount, state, name, gov_id) ],
-          "../derived/CensusFin_Matched.fst", compress=100)
-write_dta(dt_cog[, .(date_y, state_code, type, fips, fips_county, unit_id, item_code, amount, state, name, gov_id) ],
-          "../derived/CensusFin_Matched.dta")
 # ------------------------------------------------------------------------------------------
 
 
 # ------------------------------------------------------------------------------------------
 # GENERAL AGGREGATION
-# dt_cog <- read_fst("../derived/CensusFin_Matched.fst", as.data.table=TRUE)
-# dt_cog[, item_cat := str_sub(item_code, 1, 1) ]
 setorder(dt_cog, date_y, state)
 
 
@@ -426,11 +419,11 @@ dt_cog_agg_long <- melt(dt_cog_agg, id = c("date_y", "state", "type")) # --- wid
 write_fst(dt_cog_agg_long, "../derived/SandL_aggregates.fst", compress=100)
 
 # --- aggregate the data again in 3 categories: state + local total / state only /  local only
-dt1 <- dt_cog_agg_long[, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
-dt2 <- dt_cog_agg_long[type==0, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
-dt3 <- dt_cog_agg_long[type!=0, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
-dt_sl_agg <- rbind(dt1[, lvl_code := 1], dt2[, lvl_code := 2], dt3[, lvl_code := 3] )
-write_dta(dt_sl_agg, "../derived/state_local_aggregate_expenditure.dta")
+# dt1 <- dt_cog_agg_long[, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
+# dt2 <- dt_cog_agg_long[type==0, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
+# dt3 <- dt_cog_agg_long[type!=0, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
+# dt_sl_agg <- rbind(dt1[, lvl_code := 1], dt2[, lvl_code := 2], dt3[, lvl_code := 3] )
+# write_dta(dt_sl_agg, "../derived/state_local_aggregate_expenditure.dta")
 # ------------------------------------------------------------------------------------------
 
 
@@ -457,14 +450,12 @@ write_fst(dt_munis[, .(date_y, state, fips, fips_county, type, item_code, amount
 
 # ------------------------------------------------------------------------------------------
 # ---  create CensusFin_localgov_taxes.fst
-dt_munis <- dt_cog[, .(date_y, state_code, type, fips, fips_county, unit_id, item_code, amount, state, name, gov_id) ]
-dt_munis <- dt_munis[ type %in% c(1,2,3) ]
-# dt_munis[is.na(fips_county), county_id := fips_county ]
-dt_munis[, item_cat := str_sub(item_code, 1, 1) ] # to filter out taxes
-
-write_fst(dt_munis[item_cat=="T" & date_y >= 1980, .(date_y, state, fips_county, unit_id, 
-  name, gov_id, type, item_code, amount) ],
-  "../derived/CensusFin_localgov_taxes.fst", compress=100)
+# dt_munis <- dt_cog[, .(date_y, state_code, type, fips, fips_county, unit_id, item_code, amount, state, name, gov_id) ]
+# dt_munis <- dt_munis[ type %in% c(1,2,3) ]
+# dt_munis[, item_cat := str_sub(item_code, 1, 1) ] # to filter out taxes
+# write_fst(dt_munis[item_cat=="T" & date_y >= 1980, .(date_y, state, fips_county, unit_id, 
+#   name, gov_id, type, item_code, amount) ],
+#   "../derived/CensusFin_localgov_taxes.fst", compress=100)
 # ------------------------------------------------------------------------------------------
 
 

@@ -5,11 +5,31 @@ This repository contains the replication files for Daniel Green and Erik Loualic
 + *Green, Daniel and Erik Loualiche*: **State and Local Government Employment in the COVID-19 Crisis**;  Journal of Public Economics, 
 + [Download the paper](https://loualiche.gitlab.io/www/docs/munis_covid_GL.pdf)
 + [Publisher's website](https://doi.org/10.1016/j.jpubeco.2020.104321)
-+ [Download the data]()
-
++ [Download the data](https://doi.org/10.7910/DVN/F9TYAI)
 
 
 ![](output/figures/cares_logpop_rf_no_controls@2x.png)
+
+
+
+## Downloading and reproducing the paper
+
+1. Method 1: Download the data from the data repository
+  + First download the dataset from the [data repository here](https://doi.org/10.7910/DVN/F9TYAI)
+  + Unzip the data folder, and navigate to it.
+    - You might have to edit the makefile to change the location of your binaries (stata) and/or install relevant packages in R
+  + 
+
+2. Method 2: clone this repo and run 
+  ```bash
+  make download
+  make
+
+  wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
+  make
+  ```
+
+
 
 
 ## Code
@@ -28,35 +48,32 @@ To be able to run the code, you need to download the data which is available on 
              `./data/CoG/ASSGF/yyyyFinEstDAT*`: modern finance CoG public microuse files
              `./data/CoG/QTAX/**`: Quarterly Tax Files
              `CoG/census_state_codes.xlsx`, `fips_state.csv`
-   + Output: `CensusFin_Matched.fst`, `CensusFin_Matched.dta`: all CoG modern files matched with special 60
-             `SandL_aggregates.fst`, `state_local_aggregate_expenditure.dta`: aggregate Census expenditure categories
-             `CensusFin_statelocalgov_taxes.fst`, `CensusFin_localgov_taxes.fst`: filter only taxes revenue categories
+   + Output: `SandL_aggregates.fst`: aggregate Census expenditure categories
+             `CensusFin_statelocalgov_taxes.fst`: filter only taxes revenue categories
              `QTAX_STATE_processed.dta`
 2. `assemble_2.R`: Read the Local Area Unemployment Statistics
    + Input: `./data/LAU/ststdsadata.txt`, `LAU/ststdnsadata.txt`, `LAU/lau_all.txt`: ??
             `./data/LAU/sm.industry.txt`, `./data/LAU/sm.state.txt`, `./data/LAU/sm.supersector.txt`: ??
-   + Output: `BLS_laborforce_size.dta`, `LAU_industry_state.dta`, `lau_aggregates.fst`
+   + Output: `BLS_laborforce_size.dta`, `lau_aggregates.fst`
 3. `assemble_3.R`: Read the ASPEP employment files
    + Input : `CoG/census_state_codes.xlsx`, `fips_state.csv`
              `CoG/ASPEP/yycempst` for Census years, `CoG/ASPEP/yyempst` for other years
-   + Output: `micro_publicuse_emp_1992_2018.dta`, `ASPEP_local_payroll_aggregates_1993_2018.dta`
+   + Output: `ASPEP_local_payroll_aggregates_1993_2018.dta`
 4. `assemble_4.do`: 
    + Input: `fips_state.csv`, `state_pop.dta`,  `state_daily_covid.csv`, 
             `CoG/ASSGF/2017_Combined.xlsx`, 
             `FFIS_COVID_19_State_by_State_Allocations.20.xlsx`, `NASBO/RainyDayFunds2011-2020.xlsx`
             `./data/CPS/cps_1980_2019.dta`, `./data/CPS/cps_post2020.dta`: from IPUMS
-   + Output: `temp_ipums_full.dta`, `state_agg_cps_long_full.dta`, `state_agg_cps_wide_full.dta`, `state_occ_cps_long.dta`
+   + Output: `state_agg_cps_long_full.dta`, `state_occ_cps_long.dta`
              `muni_covid_combined_data_cps.dta`
 5. `assemble_5.R`: 
    + Input: `./derived/state_agg_cps_long_full.dta`
             `./derived/lau_aggregates.fst`, `./derived/BLS_laborforce_size.dta`, 
             `./derived/ASPEP_local_payroll_aggregates_1993_2018.dta`
-            `./derived/derived/rainy_day_funds_timeseries.dta`
             `./derived/QTAX_STATE_processed.dta`,
             `./derived/CensusFin_localgov_taxes.fst`, `./derived/SandL_aggregates.fst`
    + Output: `reg_data_annual.dta`, 
              `./data/gdpdef.csv` (this file is in the repo; it can be downloaded using the Fred API)
-             `rainy_day_funds_timeseries.dta`
 
 
 ### Generating Tables
@@ -196,13 +213,16 @@ Data folder organization:
 
 
 
+export API_TOKEN=722d6920-5931-4400-8dda-16dd9369986b
+export SERVER_URL=https://demo.dataverse.org
+export PERSISTENT_ID=doi:10.7910/DVN/F9TYAI
+curl -O -J -H "$SERVER_URL/api/access/dataset/:persistentId/?persistentId=$PERSISTENT_ID"
+curl -O -J -H "X-Dataverse-key:2d8db9b6-770b-4545-a000-c6cf1932c492" https://demo.dataverse.org/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI
 
 
+ curl -O -J "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
+  https://doi.org/10.7910/DVN/F9TYAI
 
-
-
-
-
-
+wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
 
 

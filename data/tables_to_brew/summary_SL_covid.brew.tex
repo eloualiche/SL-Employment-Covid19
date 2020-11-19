@@ -1,0 +1,305 @@
+<%
+options(digits = 3) 
+# careful do not use & as it is protected by latex
+n_col = 6
+# dt_brew
+# dt1_st <- dt_st_tax[ gov_type == "state" ]
+# dt1_sl <- dt_st_tax[ gov_type == "statelocal" ]
+dt2 <- copy(dt_st_rdf)
+dt3 <- copy(dt_st_reg)
+%>
+
+
+%\begin{table}[hbt]
+%\begin{threeparttable}[b]
+%\caption{Asset Pricing: Portfolios Sorted on both Elasticities: $\zeta_h$ and $\eta_h$}
+%\label{table:elasticty-all-1}
+%\begin{small}
+% \setlength{\tabcolsep}{0.5\tabcolsep}
+%{\textwidth}
+
+ % \begin{tabular*}{1\textwidth}{@{}l@{\extracolsep{\fill}} <%= paste0( rep("Y", n_col), collapse = "") %> @{}} 
+\begin{tabular*}{0.85\textwidth}{@{}l <%= paste0( rep("Y", n_col), collapse = "") %> @{ }} 
+
+
+\cmidrule[1.pt](l{-1em} r{-1em}){1-<%= (n_col+1) %>} 
+\addlinespace
+
+% \cmidrule[1pt](l{0.5em} r{0.5em}){2-<%=(n_col+1)%>} 
+%  & \multicolumn{<%= n_col %>}{c}{Panel A: Summary Statistics across Elasticity Groups, $\zeta$} \\
+% \cmidrule[0.5pt](l{0.5em} r{0.5em}){2-<%=(n_col+1)%>} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \multicolumn{1}{c}{} & 
+% \multicolumn{6}{c}{Panel A. State Governments} \\
+
+% \cmidrule[0.5pt](l{0.5em} r{0.5em}){2-7}
+
+
+% Set up the first
+& 
+   \multicolumn{1}{c}{Average} & 
+   \multicolumn{1}{c}{$\sigma$ (cross-section)} & 
+   \multicolumn{1}{c}{Min} & 
+   \multicolumn{1}{c}{25th pct.} & 
+   \multicolumn{1}{c}{75th pct.} & 
+   \multicolumn{1}{c}{Max} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-2}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){3-3}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){4-4}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){5-5}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){6-6}
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){7-7}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\multicolumn{1}{l}{} & 
+\multicolumn{6}{c}{State and Local Governments} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-7}
+
+\multicolumn{2}{l}{State and Local Governments Finances} & 
+\multicolumn{5}{c}{} \\
+
+
+\multicolumn{1}{l}{\quad Total Revenues (billions)} & 
+<%= formatC(as.numeric(dt1_sl[ var_name=="tot_rev" ][["avg"]]), format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_sl[ var_name=="tot_rev" ][["cs"]]),  format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_sl[ var_name=="tot_rev" ][["min"]]), format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_sl[ var_name=="tot_rev" ][["p25"]]), format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_sl[ var_name=="tot_rev" ][["p75"]]), format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_sl[ var_name=="tot_rev" ][["max"]]), format="f", big.mark=",", digits=1) %> 
+\\
+
+
+\multicolumn{1}{l}{\quad Sales Tax (share of total revenue \%)} & 
+<%= round(as.numeric(dt1_sl[ var_name=="sales_tax_share" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt1_sl[ var_name=="sales_tax_share" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt1_sl[ var_name=="sales_tax_share" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt1_sl[ var_name=="sales_tax_share" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt1_sl[ var_name=="sales_tax_share" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt1_sl[ var_name=="sales_tax_share" ][["max"]]), 3) %> 
+\\
+
+% \addlinespace
+
+\multicolumn{2}{l}{State and Local Gov. Employment} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\Delta\text{Muni Laid Off}$ (April)} & 
+<%= round(as.numeric(dt3[ var_name=="d_muni_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_laidoff" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad $\Delta\text{Muni Laid Off}$ (May)} & 
+<%= round(as.numeric(dt3[ var_name=="d_may_muni_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_muni_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_muni_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_muni_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_muni_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_muni_laidoff" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad $\Delta\text{Muni Laid Off}$ (June)} & 
+<%= round(as.numeric(dt3[ var_name=="d_june_muni_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_muni_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_muni_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_muni_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_muni_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_muni_laidoff" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad $\Delta\text{Muni Laid Off: Healthcare}$ (April)} & 
+<%= round(as.numeric(dt3[ var_name=="d_muni_hlth_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_hlth_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_hlth_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_hlth_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_hlth_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_hlth_laidoff" ][["max"]]), 3) %> 
+\\
+
+
+\multicolumn{1}{l}{\quad $\Delta\text{Muni Part Time}$ (April)} & 
+<%= round(as.numeric(dt3[ var_name=="d_muni_parttime" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_parttime" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_parttime" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_parttime" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_parttime" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_parttime" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad $\Delta\text{Muni U/R}$ (April)} & 
+<%= round(as.numeric(dt3[ var_name=="d_muni_urate" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_urate" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_urate" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_urate" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_urate" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_muni_urate" ][["max"]]), 3) %> 
+\\
+
+% \addlinespace
+
+\multicolumn{2}{l}{CARES Act} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad CRF funds (share of revenue \%)} & 
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_sl" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_sl" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_sl" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_sl" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_sl" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_sl" ][["max"]]), 3) %> 
+\\
+
+
+%% --------------------------------------------------------------------------------
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-7}
+
+\multicolumn{1}{l}{} & 
+\multicolumn{6}{c}{State Governments} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-7}
+%% --------------------------------------------------------------------------------
+
+
+\multicolumn{2}{l}{State Government Finances} & 
+\multicolumn{4}{c}{} \\
+
+% \multicolumn{1}{l}{\quad Total Tax Revenues (billions)} & 
+% <%= formatC(as.numeric(dt1_st[ var_name=="tot_tax" ][["avg"]]), format="f", big.mark=",", digits=1) %> &
+% <%= formatC(as.numeric(dt1_st[ var_name=="tot_tax" ][["cs"]]),  format="f", big.mark=",", digits=1) %> &
+% <%= formatC(as.numeric(dt1_st[ var_name=="tot_tax" ][["min"]]), format="f", big.mark=",", digits=1) %> &
+% <%= formatC(as.numeric(dt1_st[ var_name=="tot_tax" ][["p25"]]), format="f", big.mark=",", digits=1) %> &
+% <%= formatC(as.numeric(dt1_st[ var_name=="tot_tax" ][["p75"]]), format="f", big.mark=",", digits=1) %> &
+% <%= formatC(as.numeric(dt1_st[ var_name=="tot_tax" ][["max"]]), format="f", big.mark=",", digits=1) %> 
+% \\
+
+\multicolumn{1}{l}{\quad Total Revenues (billions)} & 
+<%= formatC(as.numeric(dt1_st[ var_name=="tot_rev" ][["avg"]]), format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_st[ var_name=="tot_rev" ][["cs"]]),  format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_st[ var_name=="tot_rev" ][["min"]]), format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_st[ var_name=="tot_rev" ][["p25"]]), format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_st[ var_name=="tot_rev" ][["p75"]]), format="f", big.mark=",", digits=1) %> &
+<%= formatC(as.numeric(dt1_st[ var_name=="tot_rev" ][["max"]]), format="f", big.mark=",", digits=1) %> 
+\\
+
+
+\multicolumn{1}{l}{\quad Sales Tax (share of total revenue \%)} & 
+% \multicolumn{5}{c}{} \\
+% \multicolumn{1}{l}{\quad $\sigma(\Delta\text{tax})$} & 
+
+<%= round(as.numeric(dt1_st[ var_name=="sales_tax_share" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt1_st[ var_name=="sales_tax_share" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt1_st[ var_name=="sales_tax_share" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt1_st[ var_name=="sales_tax_share" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt1_st[ var_name=="sales_tax_share" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt1_st[ var_name=="sales_tax_share" ][["max"]]), 3) %> 
+\\
+
+
+\multicolumn{1}{l}{\quad Rainy Day Funds (share of expenditure \%)} & 
+
+<%= round(as.numeric(dt2[ var_name=="frac" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt2[ var_name=="frac" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt2[ var_name=="frac" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt2[ var_name=="frac" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt2[ var_name=="frac" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt2[ var_name=="frac" ][["max"]]), 3) %> 
+\\
+
+% \addlinespace
+
+\multicolumn{2}{l}{State Gov. Employment} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\Delta\text{State Laid Off}$ (April)} & 
+<%= round(as.numeric(dt3[ var_name=="d_state_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_laidoff" ][["max"]]), 3) %> 
+\\
+
+
+\multicolumn{1}{l}{\quad $\Delta\text{State Laid Off}$ (May)} & 
+<%= round(as.numeric(dt3[ var_name=="d_may_state_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_state_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_state_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_state_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_state_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_may_state_laidoff" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad $\Delta\text{State Laid Off}$ (June)} & 
+<%= round(as.numeric(dt3[ var_name=="d_june_state_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_state_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_state_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_state_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_state_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_june_state_laidoff" ][["max"]]), 3) %> 
+\\
+
+\multicolumn{1}{l}{\quad $\Delta\text{State Laid Off: Healthcare}$ (April)} & 
+<%= round(as.numeric(dt3[ var_name=="d_state_hlth_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_hlth_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_hlth_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_hlth_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_hlth_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_state_hlth_laidoff" ][["max"]]), 3) %> 
+\\
+
+
+% \addlinespace
+
+\multicolumn{2}{l}{CARES Act} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad CRF funds (fraction of revenue \%)} & 
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_st" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_st" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_st" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_st" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_st" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="cares_frac_rev_st" ][["max"]]), 3) %> 
+\\
+
+
+%% --------------------------------------------------------------------------------
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-7}
+
+\multicolumn{1}{l}{} & 
+\multicolumn{6}{c}{Federal Government} \\
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-7}
+%% --------------------------------------------------------------------------------
+
+\multicolumn{2}{l}{Federal Gov. Employment} & 
+\multicolumn{5}{c}{} \\
+
+\multicolumn{1}{l}{\quad $\Delta\text{Federal Laid Off}$} & 
+<%= round(as.numeric(dt3[ var_name=="d_federal_laidoff" ][["avg"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_federal_laidoff" ][["cs"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_federal_laidoff" ][["min"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_federal_laidoff" ][["p25"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_federal_laidoff" ][["p75"]]), 3) %> &
+<%= round(as.numeric(dt3[ var_name=="d_federal_laidoff" ][["max"]]), 3) %> 
+\\
+
+
+           
+\cmidrule[1.pt](l{-1em} r{-1em}){1-<%= (n_col+1) %>} 
+
+
+\end{tabular*}

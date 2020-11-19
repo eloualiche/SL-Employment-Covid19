@@ -21,14 +21,12 @@ library(glue)
 library(stringr)
 library(lubridate)
 library(readr)
-library(Hmisc)
 library(haven)
 library(fredr)
 library(fst)
 library(readxl)
 library(lfe)
 library(brew)
-library(texreg)
 library(data.table)
 library(statar)
 # ------------------------------------------------------------------------------------------
@@ -85,12 +83,9 @@ setnames(dt_payroll_ASPEP, gsub("_3", "_L", colnames(dt_payroll_ASPEP) ) )
 dt_payroll_ASPEP[, pay_full_time_SL := payroll_full_time_SL / emp_full_time_SL ]
 dt_payroll_ASPEP[, pay_full_time_S  := payroll_full_time_S  / emp_full_time_S  ]
 dt_payroll_ASPEP[, pay_full_time_L  := payroll_full_time_L  / emp_full_time_L  ]
-dt_payroll_ASPEP
+# dt_payroll_ASPEP
 # ------------------------------------------------------------------------------------------
 
-
-# ------------------------------------------------------------------------------------------
-# NASBO RAINY DAY FUNDS
 
 # ------------------------------------------------------------------------------------------
 # PROCESS 2011 to 2020 (one table)
@@ -141,11 +136,10 @@ dt_rdf2 <- merge(dt_rdf2[, -"variable"], dt_tmp[, -"variable"], by = c("State", 
 dt_rdf_full <- rbind(dt_rdf1, dt_rdf2, fill = T)
 dt_rdf_full[rdf_frac > 0, Expenditures := rdf / rdf_frac * 100 ]
 setcolorder(dt_rdf_full, c("State", "year"))
-write_dta(dt_rdf_full, "../derived/rainy_day_funds_timeseries.dta")
+# write_dta(dt_rdf_full, "../derived/rainy_day_funds_timeseries.dta")
 
 dt_nasbo_rdf <- copy(dt_rdf_full)
 setnames(dt_nasbo_rdf, c("state_name", "date_y", "rdf", "Expenditures", "rdf_frac"))
-
 # ------------------------------------------------------------------------------------------
 
 
@@ -168,22 +162,19 @@ for (i in seq(1, 4)){
   dt_qtax[, glue("l{i}_S_T40_share") := tlag(S_T40_share, n=3*i, time=datem), by = .(state) ]
   dt_qtax[, glue("l{i}_S_T41_share") := tlag(S_T41_share, n=3*i, time=datem), by = .(state) ]
 }
-dt_qtax[]
+# dt_qtax[]
 
-
-# # --------------- WORK IN PROGRESS -> checking what's wrong in this dataset
-# # TAXES FOR STATE AND LOCAL GOVERNMENT
 
 # ---------------
 # STATE AND LOCAL AGGREGATE TABLES REVENUES AND TAXES
 dt_sl_agg <- read_fst("../derived/SandL_aggregates.fst", as.data.table=T)
-dt_sl_agg %>% tab(variable)
+# dt_sl_agg %>% tab(variable)
 # - aggregate the data again in 3 categories: 1: state + local total / 2: state only /  3: local only
 dt1 <- dt_sl_agg[, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
 dt2 <- dt_sl_agg[type==0, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
 dt3 <- dt_sl_agg[type!=0, .(value = sum(value, na.rm=T)), by = .(date_y, state, variable) ]
 dt_sl_agg <- rbind(dt1[, lvl_code := 1], dt2[, lvl_code := 2], dt3[, lvl_code := 3] )
-dt_sl_agg %>% tab(variable)
+# dt_sl_agg %>% tab(variable)
 
 dt_sl_agg <- dt_sl_agg[ variable %in% c("GAL_revenue", "IG_fed_revenue", "TAX_revenue",
                                         "PROPTAX_revenue", "SALESTAX_revenue", "INCMTAX_revenue", "CORPTAX_revenue", "OTHTAX_revenue") ]
@@ -290,17 +281,17 @@ dt_reg[, `:=`(log_TAX_revenue_SL=log(TAX_revenue_SL), log_TAX_revenue_S=log(TAX_
 dt_reg[, `:=`(log_rdf=log(rdf), log_rdf_frac=log(rdf_frac) ) ]
 
 # Introduce lags
-dt_reg[, f1y_log_emp    := tlead(log_emp, 12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_unemp  := tlead(log_unemp, 12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_emp_SL := tlead(log_emp_SL, 12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_emp_S  := tlead(log_emp_S,  12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_emp_L  := tlead(log_emp_L,  12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_payroll_SL := tlead(log_payroll_SL, 12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_payroll_S  := tlead(log_payroll_S,  12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_payroll_L  := tlead(log_payroll_L,  12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_pay_SL := tlead(log_pay_SL, 12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_pay_S  := tlead(log_pay_S,  12L, time=datem), by = .(state, classwkr) ]
-dt_reg[, f1y_log_pay_L  := tlead(log_pay_L,  12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_emp    := tlead(log_emp, 12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_unemp  := tlead(log_unemp, 12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_emp_SL := tlead(log_emp_SL, 12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_emp_S  := tlead(log_emp_S,  12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_emp_L  := tlead(log_emp_L,  12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_payroll_SL := tlead(log_payroll_SL, 12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_payroll_S  := tlead(log_payroll_S,  12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_payroll_L  := tlead(log_payroll_L,  12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_pay_SL := tlead(log_pay_SL, 12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_pay_S  := tlead(log_pay_S,  12L, time=datem), by = .(state, classwkr) ]
+# dt_reg[, f1y_log_pay_L  := tlead(log_pay_L,  12L, time=datem), by = .(state, classwkr) ]
 
 # dt_reg[, `:=`(log_TAX_revenue_SL=log(TAX_revenue_SL), log_TAX_revenue_S=log(TAX_revenue_S), log_TAX_revenue_L=log(TAX_revenue_L)) ]
 
@@ -353,42 +344,42 @@ for (h in seq(1,5)){
 }
 
 # FIRST DIFFERENCE
-for (h in seq(1,5)){
-	dt_reg_short[, c(glue("df{h}y_log_emp_ces")) := get(glue("f{h}y_log_emp_ces")) - log_emp_ces, by = .(state) ]
-	dt_reg_short[, c(glue("df{h}y_log_emp_SL"))  := get(glue("f{h}y_log_emp_SL")) - log_emp_SL, by = .(state) ]
-	dt_reg_short[, c(glue("df{h}y_log_emp_S"))   := get(glue("f{h}y_log_emp_S")) - log_emp_S, by = .(state) ]
-	dt_reg_short[, c(glue("df{h}y_log_emp_L"))   := get(glue("f{h}y_log_emp_L")) - log_emp_L, by = .(state) ]
-}
+# for (h in seq(1,5)){
+# 	dt_reg_short[, c(glue("df{h}y_log_emp_ces")) := get(glue("f{h}y_log_emp_ces")) - log_emp_ces, by = .(state) ]
+# 	dt_reg_short[, c(glue("df{h}y_log_emp_SL"))  := get(glue("f{h}y_log_emp_SL")) - log_emp_SL, by = .(state) ]
+# 	dt_reg_short[, c(glue("df{h}y_log_emp_S"))   := get(glue("f{h}y_log_emp_S")) - log_emp_S, by = .(state) ]
+# 	dt_reg_short[, c(glue("df{h}y_log_emp_L"))   := get(glue("f{h}y_log_emp_L")) - log_emp_L, by = .(state) ]
+# }
 
-# LAGG VARIABLES
+# # LAGG VARIABLES
 dt_reg_short[, l1y_INCMTAX_revshare_S  := tlag(INCMTAX_revshare_S,  1L, time=date_y), by = .(state) ]
 dt_reg_short[, l1y_CORPTAX_revshare_S  := tlag(CORPTAX_revshare_S,  1L, time=date_y), by = .(state) ]
 dt_reg_short[, l1y_SALESTAX_revshare_S := tlag(SALESTAX_revshare_S, 1L, time=date_y), by = .(state) ]
 dt_reg_short[, l1y_SALESTAX_revshare_L := tlag(SALESTAX_revshare_L, 1L, time=date_y), by = .(state) ]
 dt_reg_short[, l1y_PROPTAX_revshare_L  := tlag(PROPTAX_revshare_L, 1L, time=date_y), by = .(state) ]
 
-# LAG AND MEASURE OF DEFSHOCK
-dt_reg_short[, l1y_log_TAX_revenue_SL   := tlag(log_TAX_revenue_SL,  1L, time=date_y), by = .(state) ]
-dt_reg_short[, l1y_log_TAX_revenue_S    := tlag(log_TAX_revenue_S,   1L, time=date_y), by = .(state) ]
-dt_reg_short[, l1y_log_TAX_revenue_L    := tlag(log_TAX_revenue_L,   1L, time=date_y), by = .(state) ]
-dt_reg_short[, dl1y_log_TAX_revenue_SL  := log_TAX_revenue_SL - get(glue("l1y_log_TAX_revenue_SL")), by = .(state) ]
-dt_reg_short[, dl1y_log_TAX_revenue_S   := log_TAX_revenue_S  - get(glue("l1y_log_TAX_revenue_SL")), by = .(state) ]
-dt_reg_short[, dl1y_log_TAX_revenue_L   := log_TAX_revenue_L  - get(glue("l1y_log_TAX_revenue_SL")), by = .(state) ]
+# # LAG AND MEASURE OF DEFSHOCK
+# dt_reg_short[, l1y_log_TAX_revenue_SL   := tlag(log_TAX_revenue_SL,  1L, time=date_y), by = .(state) ]
+# dt_reg_short[, l1y_log_TAX_revenue_S    := tlag(log_TAX_revenue_S,   1L, time=date_y), by = .(state) ]
+# dt_reg_short[, l1y_log_TAX_revenue_L    := tlag(log_TAX_revenue_L,   1L, time=date_y), by = .(state) ]
+# dt_reg_short[, dl1y_log_TAX_revenue_SL  := log_TAX_revenue_SL - get(glue("l1y_log_TAX_revenue_SL")), by = .(state) ]
+# dt_reg_short[, dl1y_log_TAX_revenue_S   := log_TAX_revenue_S  - get(glue("l1y_log_TAX_revenue_SL")), by = .(state) ]
+# dt_reg_short[, dl1y_log_TAX_revenue_L   := log_TAX_revenue_L  - get(glue("l1y_log_TAX_revenue_SL")), by = .(state) ]
 
-dt_reg_short[, f1y_log_TAX_revenue_SL   := tlead(log_TAX_revenue_SL, 1L, time=date_y), by = .(state) ]
-dt_reg_short[, f1y_log_TAX_revenue_S    := tlead(log_TAX_revenue_S,  1L, time=date_y), by = .(state) ]
-dt_reg_short[, f1y_log_TAX_revenue_L    := tlead(log_TAX_revenue_L,  1L, time=date_y), by = .(state) ]
-dt_reg_short[, df1y_log_TAX_revenue_SL  := get(glue("f1y_log_TAX_revenue_SL")) - log_TAX_revenue_SL, by = .(state) ]
-dt_reg_short[, df1y_log_TAX_revenue_S   := get(glue("f1y_log_TAX_revenue_SL")) - log_TAX_revenue_S, by = .(state) ]
-dt_reg_short[, df1y_log_TAX_revenue_L   := get(glue("f1y_log_TAX_revenue_SL")) - log_TAX_revenue_L, by = .(state) ]
+# dt_reg_short[, f1y_log_TAX_revenue_SL   := tlead(log_TAX_revenue_SL, 1L, time=date_y), by = .(state) ]
+# dt_reg_short[, f1y_log_TAX_revenue_S    := tlead(log_TAX_revenue_S,  1L, time=date_y), by = .(state) ]
+# dt_reg_short[, f1y_log_TAX_revenue_L    := tlead(log_TAX_revenue_L,  1L, time=date_y), by = .(state) ]
+# dt_reg_short[, df1y_log_TAX_revenue_SL  := get(glue("f1y_log_TAX_revenue_SL")) - log_TAX_revenue_SL, by = .(state) ]
+# dt_reg_short[, df1y_log_TAX_revenue_S   := get(glue("f1y_log_TAX_revenue_SL")) - log_TAX_revenue_S, by = .(state) ]
+# dt_reg_short[, df1y_log_TAX_revenue_L   := get(glue("f1y_log_TAX_revenue_SL")) - log_TAX_revenue_L, by = .(state) ]
 
 
-dt_reg_short[, sign_tax_shock_SL := as.factor(sign(log_TAX_revenue_SL-l1y_log_TAX_revenue_SL)) ]
-dt_reg_short[, sign_tax_shock_S  := as.factor(sign(log_TAX_revenue_S-l1y_log_TAX_revenue_S)) ]
-dt_reg_short[, sign_tax_shock_L  := as.factor(sign(log_TAX_revenue_L-l1y_log_TAX_revenue_L)) ]
-dt_reg_short[, sign_tax_shock_SL := as.factor(sign(f1y_log_TAX_revenue_SL-log_TAX_revenue_SL)) ]
-dt_reg_short[, sign_tax_shock_S  := as.factor(sign(f1y_log_TAX_revenue_S-log_TAX_revenue_S)) ]
-dt_reg_short[, sign_tax_shock_L  := as.factor(sign(f1y_log_TAX_revenue_L-log_TAX_revenue_L)) ]
+# dt_reg_short[, sign_tax_shock_SL := as.factor(sign(log_TAX_revenue_SL-l1y_log_TAX_revenue_SL)) ]
+# dt_reg_short[, sign_tax_shock_S  := as.factor(sign(log_TAX_revenue_S-l1y_log_TAX_revenue_S)) ]
+# dt_reg_short[, sign_tax_shock_L  := as.factor(sign(log_TAX_revenue_L-l1y_log_TAX_revenue_L)) ]
+# dt_reg_short[, sign_tax_shock_SL := as.factor(sign(f1y_log_TAX_revenue_SL-log_TAX_revenue_SL)) ]
+# dt_reg_short[, sign_tax_shock_S  := as.factor(sign(f1y_log_TAX_revenue_S-log_TAX_revenue_S)) ]
+# dt_reg_short[, sign_tax_shock_L  := as.factor(sign(f1y_log_TAX_revenue_L-log_TAX_revenue_L)) ]
 
 dt_reg_short[, time_trend := as.integer(date_y) ]
 dt_reg_short[, `:=`(q_rdf_frac = xtile(rdf_frac, 3)) ]

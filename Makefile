@@ -11,7 +11,7 @@
 
 
 # ------------------------------------------------------------------------------------------
-all: unzip_data \
+all: create_folders \
   build_census_finance build_lau build_census_employment \
   build_cps_full build_reg \
   build_main_figs_tables build_appendix_tables \
@@ -19,17 +19,25 @@ all: unzip_data \
 
 
 # --- Unzip the data 
-unzip_data:
-	unzip_data:
-	tar xf data.zip
+create_folders:
 	mkdir -p code/log
 	mkdir -p derived
 	mkdir -p output
 	mkdir -p output/appendix
 	mkdir -p output/figures
 	mkdir -p output/tables
+	cd code; R CMD BATCH --vanilla install_necessary_packages.R log/install_necessary_packages.log.R
 	$(TIME-END)
 	@echo 
+
+
+# --- 
+download_data: 
+	  mkdir tmp
+	  cd tmp; wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
+		tar xf data.zip
+		$(TIME-END)
+		@echo
 
 # --- build the CoG Revenue/Expenditure finance files
 build_census_finance:
@@ -85,6 +93,8 @@ build_appendix_tables:
 # - build paper
 build_paper:
 	cd manuscript; pdflatex -interaction=batchmode -output-directory ./ localgov_GL_jpube.tex
+	cd manuscript; bibtex localgov_GL_jpube
+	cd manuscript; pdflatex -interaction=batchmode -output-directory ./ localgov_GL_jpube.tex
 	cd manuscript; pdflatex -interaction=batchmode -output-directory ./ localgov_GL_jpube.tex
 	rm -f manuscript/*.aux manuscript/*.log manuscript/*.lot manuscript/*.out manuscript/*.toc manuscript/*.bbl manuscript/*.blg
 	mv manuscript/localgov_GL_jpube.pdf ./
@@ -111,6 +121,7 @@ clean.all:
 	rm -f code/log/**
 	rm -f derived/**
 	rm -rf data
+
 # ------------------------------------------------------------------------------------------
 
 

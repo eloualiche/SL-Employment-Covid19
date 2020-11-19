@@ -1,0 +1,252 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+<%
+options(digits = 3) 
+# careful do not use & as it is protected by latex
+n_col = 5
+l_rh1 <- list(rh1_privemp_SL_T, rh1_emp_SL_T, rh1_emp_S_T, rh1_emp_L_T)
+l_rh2 <- list(rh2_privemp_SL_T, rh2_emp_SL_T, rh2_emp_S_T, rh2_emp_L_T)
+l_rh3 <- list(rh3_privemp_SL_T, rh3_emp_SL_T, rh3_emp_S_T, rh3_emp_L_T)
+l_rh4 <- list(rh4_privemp_SL_T, rh4_emp_SL_T, rh4_emp_S_T, rh4_emp_L_T)
+%>
+
+% PANEL A:
+% SC on unemployment, income, DTI and Debt
+% r_brew_list1 <- list(reg1b_unemp2, reg2b_unemp2, reg1b_inc, reg2b_inc)
+% r_brew_list2 <- list(reg1b_dti, reg2b_dti, reg1b_debt, reg2b_debt)
+% r_brew_list3 <- list(reg1b_debt, reg2b_debt, reg1b_mort, reg2b_mort, reg1b_other, reg2b_other, reg1b_car, reg2b_car)
+% r_brew_list4 <- list(reg3_iv_debt, reg3b_iv_debt, reg4_iv_debt, reg4b_iv_debt, reg5b_iv1_debt, reg5_iv1_debt, reg5b_iv2_debt, reg5_iv2_debt)
+% r_brew_list5 <- list(reg3_iv_dti,  reg3b_iv_dti,  reg4_iv_dti,  reg4b_iv_dti,  reg5b_iv1_dti,  reg5_iv1_dti,  reg5b_iv2_dti, reg5_iv2_dti)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tabular*}{0.7\textwidth}{@{}l@{\extracolsep{\fill}}cccc@{}}
+% \begin{tabular*}{1.0\textwidth}{@{} l cccc @{}}
+% \begin{tabular}{l cccc}
+
+\toprule
+
+\addlinespace
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+
+\multicolumn{1}{l}{Future Employment} &
+\multicolumn{1}{c}{(1)} & 
+\multicolumn{1}{c}{(2)} & 
+\multicolumn{1}{c}{(3)} & 
+\multicolumn{1}{c}{(4)} 
+\\
+
+\multicolumn{1}{l}{Horizon:} &
+\multicolumn{1}{c}{1 year} & 
+\multicolumn{1}{c}{2 year} & 
+\multicolumn{1}{c}{3 year} & 
+\multicolumn{1}{c}{4 year} 
+\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HORIZON 2 years
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-5} 
+
+\multicolumn{1}{l}{} &
+\multicolumn{4}{c}{Private Employment}\\
+
+\cmidrule[0.25pt](l{0.5em} r{0.5em}){2-5} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SL TAX 
+\multicolumn{1}{l}{S\&L Tax Revenue} &
+<% 
+	reg_tmp1 <- l_rh1[[1]]
+	coef_tmp1 <- summary(reg_tmp1)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp1[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp1[["Estimate"]], coef_tmp1[["Cluster s.e."]]), "} $" ) %> 
+& 
+
+<% 
+	reg_tmp2 <- l_rh2[[1]]
+	coef_tmp2 <- summary(reg_tmp2)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp2[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp2[["Estimate"]], coef_tmp2[["Cluster s.e."]]), "} $" ) %> 
+&
+
+<% 
+	reg_tmp3 <- l_rh3[[1]]
+	coef_tmp3 <- summary(reg_tmp3)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp3[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp3[["Estimate"]], coef_tmp3[["Cluster s.e."]]), "} $" ) %> 
+&
+
+<% 
+	reg_tmp4 <- l_rh4[[1]]
+	coef_tmp4 <- summary(reg_tmp4)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp4[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp4[["Estimate"]], coef_tmp4[["Cluster s.e."]]), "} $" ) %> 
+
+\\
+
+\multicolumn{1}{l}{} &
+(<%= as.numeric( coef_tmp1[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp2[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp3[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp4[["Cluster s.e."]] ) %>) 
+\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% STATe AND LOCAL
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-5} 
+
+\multicolumn{1}{l}{} &
+\multicolumn{4}{c}{S\&L Government Employment}\\
+
+\cmidrule[0.25pt](l{0.5em} r{0.5em}){2-5} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SL TAX 
+\multicolumn{1}{l}{S\&L Tax Revenue} &
+<% 
+	reg_tmp1 <- l_rh1[[2]]
+	coef_tmp1 <- summary(reg_tmp1)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp1[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp1[["Estimate"]], coef_tmp1[["Cluster s.e."]]), "} $" ) %> 
+& 
+
+<% 
+	reg_tmp2 <- l_rh2[[2]]
+	coef_tmp2 <- summary(reg_tmp2)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp2[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp2[["Estimate"]], coef_tmp2[["Cluster s.e."]]), "} $" ) %> 
+&
+
+<% 
+	reg_tmp3 <- l_rh3[[2]]
+	coef_tmp3 <- summary(reg_tmp3)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp3[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp3[["Estimate"]], coef_tmp3[["Cluster s.e."]]), "} $" ) %> 
+&
+
+<% 
+	reg_tmp4 <- l_rh4[[2]]
+	coef_tmp4 <- summary(reg_tmp4)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp4[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp4[["Estimate"]], coef_tmp4[["Cluster s.e."]]), "} $" ) %> 
+
+\\
+
+\multicolumn{1}{l}{} &
+(<%= as.numeric( coef_tmp1[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp2[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp3[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp4[["Cluster s.e."]] ) %>) 
+\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% STATe 
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-5} 
+
+\multicolumn{1}{l}{} &
+\multicolumn{4}{c}{State Government Employment}\\
+
+\cmidrule[0.25pt](l{0.5em} r{0.5em}){2-5} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SL TAX 
+\multicolumn{1}{l}{State Tax Revenue} &
+<% 
+	reg_tmp1 <- l_rh1[[3]]
+	coef_tmp1 <- summary(reg_tmp1)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp1[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp1[["Estimate"]], coef_tmp1[["Cluster s.e."]]), "} $" ) %> 
+& 
+
+<% 
+	reg_tmp2 <- l_rh2[[3]]
+	coef_tmp2 <- summary(reg_tmp2)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp2[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp2[["Estimate"]], coef_tmp2[["Cluster s.e."]]), "} $" ) %> 
+&
+
+<% 
+	reg_tmp3 <- l_rh3[[3]]
+	coef_tmp3 <- summary(reg_tmp3)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp3[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp3[["Estimate"]], coef_tmp3[["Cluster s.e."]]), "} $" ) %> 
+&
+
+<% 
+	reg_tmp4 <- l_rh4[[3]]
+	coef_tmp4 <- summary(reg_tmp4)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp4[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp4[["Estimate"]], coef_tmp4[["Cluster s.e."]]), "} $" ) %> 
+
+\\
+
+\multicolumn{1}{l}{} &
+(<%= as.numeric( coef_tmp1[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp2[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp3[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp4[["Cluster s.e."]] ) %>) 
+\\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LOCAL 
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-5} 
+
+\multicolumn{1}{l}{} &
+\multicolumn{4}{c}{Local Government Employment}\\
+
+\cmidrule[0.25pt](l{0.5em} r{0.5em}){2-5} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SL TAX 
+\multicolumn{1}{l}{Local Tax Revenue} &
+<% 
+	reg_tmp1 <- l_rh1[[4]]
+	coef_tmp1 <- summary(reg_tmp1)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp1[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp1[["Estimate"]], coef_tmp1[["Cluster s.e."]]), "} $" ) %> 
+& 
+
+<% 
+	reg_tmp2 <- l_rh2[[4]]
+	coef_tmp2 <- summary(reg_tmp2)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp2[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp2[["Estimate"]], coef_tmp2[["Cluster s.e."]]), "} $" ) %> 
+&
+
+<% 
+	reg_tmp3 <- l_rh3[[4]]
+	coef_tmp3 <- summary(reg_tmp3)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp3[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp3[["Estimate"]], coef_tmp3[["Cluster s.e."]]), "} $" ) %> 
+&
+
+<% 
+	reg_tmp4 <- l_rh4[[4]]
+	coef_tmp4 <- summary(reg_tmp4)[["coefficients"]][c(1),]
+%>	
+<%= paste0("$", formatC(as.numeric( coef_tmp4[["Estimate"]] ), format="f", digits=3), "^{", star_builder(coef_tmp4[["Estimate"]], coef_tmp4[["Cluster s.e."]]), "} $" ) %> 
+
+\\
+
+\multicolumn{1}{l}{} &
+(<%= as.numeric( coef_tmp1[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp2[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp3[["Cluster s.e."]] ) %>) & 
+(<%= as.numeric( coef_tmp4[["Cluster s.e."]] ) %>) 
+\\
+
+
+%\cmidrule[1.5pt](l{-1em} r{-1em}){1-<%= (n_col+2) %>} 
+\bottomrule
+
+
+% \end{tabular}
+\end{tabular*}
+
+
+

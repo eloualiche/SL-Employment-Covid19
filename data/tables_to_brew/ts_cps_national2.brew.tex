@@ -1,0 +1,160 @@
+<%
+options(digits = 3) 
+# careful do not use & as it is protected by latex
+n_col = 7
+# dt_brew
+%>
+
+ \setlength\sparkbottomlinethickness{.2pt}
+
+%\begin{table}[hbt]
+%\begin{threeparttable}[b]
+%\caption{Asset Pricing: Portfolios Sorted on both Elasticities: $\zeta_h$ and $\eta_h$}
+%\label{table:elasticty-all-1}
+%\begin{small}
+% \setlength{\tabcolsep}{0.5\tabcolsep}
+%{\textwidth}
+
+ % \begin{tabular*}{1\textwidth}{@{}l@{\extracolsep{\fill}} <%= paste0( rep("Y", n_col), collapse = "") %> @{}} 
+\begin{tabular*}{0.85\textwidth}{@{}l <%= paste0( rep("Y", n_col), collapse = "") %> @{ }} 
+
+
+\cmidrule[1.5pt](l{-1em} r{-1em}){1-<%= (n_col+1) %>} 
+\addlinespace
+
+% \cmidrule[1pt](l{0.5em} r{0.5em}){2-<%=(n_col+1)%>} 
+%  & \multicolumn{<%= n_col %>}{c}{Panel A: Summary Statistics across Elasticity Groups, $\zeta$} \\
+% \cmidrule[0.5pt](l{0.5em} r{0.5em}){2-<%=(n_col+1)%>} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+% Set up the first
+& 
+   \multicolumn{1}{c}{Feb.} & 
+   \multicolumn{1}{c}{Mar.} & 
+   \multicolumn{1}{c}{Apr.} & 
+   \multicolumn{1}{c}{May.} & 
+   \multicolumn{1}{c}{June.} & 
+   \multicolumn{2}{c}{}  
+   \\
+
+
+\cmidrule[0.5pt](l{0.5em} r{0.5em}){2-8}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\multicolumn{1}{l}{Private Sector Unemployment} & 
+\multicolumn{6}{c}{} \\
+
+\multicolumn{1}{l}{\quad (in thousands of workers)} & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-02-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-03-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-04-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-05-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-06-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+\multicolumn{2}{c}{
+	<%= sparkline(dt_cps_us[classwkr==22 & date <=as.Date("2020-06-01")][["unemployed_national"]],  enddotcolor="red", bottomline=TRUE) %> 
+}
+\\
+
+\multicolumn{1}{l}{\quad (unemployment rate in \%)} & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-02-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-03-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-04-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-05-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==22 & date == as.Date("2020-06-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+\multicolumn{2}{c}{}	
+\\
+
+
+% \addlinespace
+
+\multicolumn{1}{l}{State Government Unemployment} & 
+\multicolumn{4}{c}{} \\
+
+\multicolumn{1}{l}{\quad (in thousands of workers)} & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-02-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-03-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-04-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-05-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-06-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> & 
+\multicolumn{2}{c}{
+	<%= sparkline(dt_cps_us[classwkr==27 & date <=as.Date("2020-06-01")][["unemployed_national"]],  enddotcolor="red", bottomline=TRUE) %> 
+}
+
+\\
+
+\multicolumn{1}{l}{\quad (unemployment rate in \%)} & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-02-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-03-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-04-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-05-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==27 & date == as.Date("2020-06-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+\multicolumn{2}{c}{}	
+\\
+
+% \addlinespace
+
+\multicolumn{1}{l}{Local Government Unemployment} & 
+\multicolumn{4}{c}{} \\
+
+\multicolumn{1}{l}{\quad (in thousands of workers)} & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-02-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-03-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-04-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-05-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-06-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+\multicolumn{2}{c}{
+	<%= sparkline(dt_cps_us[classwkr==28 & date <=as.Date("2020-06-01")][["unemployed_national"]],  enddotcolor="red", bottomline=TRUE) %> 
+}
+
+\\
+
+\multicolumn{1}{l}{\quad (unemployment rate in \%)} & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-02-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-03-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-04-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-05-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==28 & date == as.Date("2020-06-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+\multicolumn{2}{c}{}	
+\\
+
+
+\multicolumn{1}{l}{Federal Government Unemployment} & 
+\multicolumn{4}{c}{} \\
+
+\multicolumn{1}{l}{\quad (in thousands of workers)} & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-02-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-03-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-04-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-05-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-06-01") ][["unemployed_national"]] / 1E3), 3), big.mark="," , scientific=F)  %> &
+\multicolumn{2}{c}{
+	<%= sparkline(dt_cps_us[classwkr==25 & date <=as.Date("2020-06-01")][["unemployed_national"]],  enddotcolor="red", bottomline=TRUE) %> 
+}
+\\
+
+\multicolumn{1}{l}{\quad (unemployment rate in \%)} & 
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-02-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-03-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-04-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-05-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+<%= prettyNum(round(as.numeric(dt_cps_us[ classwkr==25 & date == as.Date("2020-06-01") ][["urate_national"]] * 100), 3), big.mark="," , scientific=F)  %> &
+\multicolumn{2}{c}{}	
+\\
+
+
+
+           
+\cmidrule[1.5pt](l{-1em} r{-1em}){1-<%= (n_col+1) %>} 
+
+
+\end{tabular*}
