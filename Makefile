@@ -16,9 +16,18 @@ all: create_folders \
   build_cps_full build_reg \
   build_main_figs_tables build_appendix_tables \
   build_paper
+# ------------------------------------------------------------------------------------------
 
 
-# --- Unzip the data 
+# ------------------------------------------------------------------------------------------
+# --- 
+download_data: 
+	  mkdir tmp
+	  cd tmp; wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
+		$(TIME-END)
+		@echo
+
+# --- 
 create_folders:
 	mkdir -p code/log
 	mkdir -p derived
@@ -29,16 +38,10 @@ create_folders:
 	cd code; R CMD BATCH --vanilla install_necessary_packages.R log/install_necessary_packages.log.R
 	$(TIME-END)
 	@echo 
+# ------------------------------------------------------------------------------------------
 
 
-# --- 
-download_data: 
-	  mkdir tmp
-	  cd tmp; wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
-		tar xf data.zip
-		$(TIME-END)
-		@echo
-
+# ------------------------------------------------------------------------------------------
 # --- build the CoG Revenue/Expenditure finance files
 build_census_finance:
 	mkdir -p code/log

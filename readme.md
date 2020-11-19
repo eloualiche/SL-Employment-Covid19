@@ -14,18 +14,15 @@ This repository contains the replication files for Daniel Green and Erik Loualic
 
 ## Downloading and reproducing the paper
 
-1. Method 1: Download the data from the data repository
++ **Method 1**: Download the data from the data repository
   + First download the dataset from the [data repository here](https://doi.org/10.7910/DVN/F9TYAI)
   + Unzip the data folder, and navigate to it.
     - You might have to edit the makefile to change the location of your binaries (stata) and/or install relevant packages in R
   + 
 
-2. Method 2: clone this repo and run 
++ Method 2: directly from the repository
   ```bash
   make download
-  make
-
-  wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
   make
   ```
 
@@ -37,7 +34,7 @@ This repository contains the replication files for Daniel Green and Erik Loualic
 There is a `makefile` to generate all the tables and figures in the paper: simply run `make` from within the folder. 
 
 Depending on your installation, you might have to edit the makefile and change the path for your stata binary. 
-To be able to run the code, you need to download the data which is available on [Harvard dataverse]()
+To be able to run the code, you need to download the data which is available on [Harvard dataverse](https://doi.org/10.7910/DVN/F9TYAI)
 
 
 
@@ -210,19 +207,5 @@ Data folder organization:
 ```
 
 
-
-
-
-export API_TOKEN=722d6920-5931-4400-8dda-16dd9369986b
-export SERVER_URL=https://demo.dataverse.org
-export PERSISTENT_ID=doi:10.7910/DVN/F9TYAI
-curl -O -J -H "$SERVER_URL/api/access/dataset/:persistentId/?persistentId=$PERSISTENT_ID"
-curl -O -J -H "X-Dataverse-key:2d8db9b6-770b-4545-a000-c6cf1932c492" https://demo.dataverse.org/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI
-
-
- curl -O -J "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
-  https://doi.org/10.7910/DVN/F9TYAI
-
-wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
 
 
