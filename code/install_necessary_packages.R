@@ -19,7 +19,7 @@ library(pacman)
 
 # list of necessary packages across
 l_pak <- c("bit64", "brew", "crayon", "data.table", "devtools", 
-  "fst", "glue", "haven",
+  "fredr", "fst", "glue", "haven",
   "lfe", "ltxsparklines", "lubridate", "magrittr", "progress", "purrr",
   "readr", "readxl", "stargazer", "statar", "stringr", "tidyr")
 

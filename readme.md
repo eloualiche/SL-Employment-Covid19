@@ -21,7 +21,8 @@ This repository contains the replication files for Daniel Green and Erik Loualic
 + **Method 1**: Download the data from the data repository
   + First download the dataset from the [data repository here](https://doi.org/10.7910/DVN/F9TYAI)
   + Unzip the data folder, and navigate to it.
-    - You might have to edit the makefile to change the location of your binaries (stata) and/or install relevant packages in R
+    - You might have to edit the makefile to change the location of your binaries (stata) or export the path, for example `export PATH=$PATH:"/Applications/Stata/StataMP.app/Contents/MacOS`
+
 
 + **Method 2**: directly from the repository (make sure your stata binary is in your path)
   ```bash
