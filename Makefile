@@ -25,7 +25,7 @@ download_data:
 	  mkdir tmp
 	  cd tmp; wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
 	  cd tmp; mv "index.html?persistentId=doi:10.7910%2FDVN%2FF9TYAI" "dataverse.zip"
-	  cd tmp; unzip xf dataverse.zip
+	  cd tmp; unzip dataverse.zip
 	  cp -R -n tmp/data/* ./data
 	  rm -rf tmp
 		$(TIME-END)

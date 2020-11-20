@@ -12,6 +12,10 @@ This repository contains the replication files for Daniel Green and Erik Loualic
 
 
 
+
+-------------------
+
+
 ## Downloading and reproducing the paper
 
 + **Method 1**: Download the data from the data repository
@@ -19,24 +23,18 @@ This repository contains the replication files for Daniel Green and Erik Loualic
   + Unzip the data folder, and navigate to it.
     - You might have to edit the makefile to change the location of your binaries (stata) and/or install relevant packages in R
 
-+ **Method 2**: directly from the repository (you will still have to change binary path in makefile)
++ **Method 2**: directly from the repository (make sure your stata binary is in your path)
   ```bash
   git clone git@github.com:eloualiche/SL-Employment-Covid19.git
   cd SL-Employment-Covid19
-  make download_data # download the data from the dataverse 
-  make               # build the datasets and tables for the paper
+  make download_data          # download the data from the dataverse 
+  make                        # build the datasets and tables for the paper
   ```
 
-
+-------------------
 
 
 ## Code
-
-There is a `makefile` to generate all the tables and figures in the paper: simply run `make` from within the folder. 
-
-Depending on your installation, you might have to edit the makefile and change the path for your stata binary. 
-To be able to run the code, you need to download the data which is available on [Harvard dataverse](https://doi.org/10.7910/DVN/F9TYAI)
-
 
 
 ### Building the datasets
@@ -108,6 +106,8 @@ Appendix Tables
             `./derived/SandL_aggregates.fst`
    + Output: [Table A8](./output/appendix/tables/table_ols_publicemp_full_horizon.tex)
 
+
+-------------------
 
 
 ## Data Sources
