@@ -133,7 +133,7 @@ clean.all:
 
 
 # ------------------------------------------------------------------------------------------
-SHELL := /bin/bash
+# SHELL := /bin/bash
 STATA_CLI := $(shell which stata-mp)  # make sure that stata is in your path! 
 
 TIME_START := $(shell date +%s)
@@ -143,3 +143,4 @@ define TIME-END
  	@time_end=`date +%s` ; time_exec=`awk -v "TS=${TIME_START}" -v "TE=$$time_end" 'BEGIN{TD=TE-TS;printf "%02dm:%02ds\n", TD/(60),TD%60}'` ; echo \\t${WHITE}cumulative time elapsed ... $${time_exec} ... $@ ${NC}
 endef
 # ------------------------------------------------------------------------------------------
+
