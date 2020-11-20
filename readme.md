@@ -18,12 +18,13 @@ This repository contains the replication files for Daniel Green and Erik Loualic
   + First download the dataset from the [data repository here](https://doi.org/10.7910/DVN/F9TYAI)
   + Unzip the data folder, and navigate to it.
     - You might have to edit the makefile to change the location of your binaries (stata) and/or install relevant packages in R
-  + 
 
-+ Method 2: directly from the repository
++ **Method 2**: directly from the repository (you will still have to change binary path in makefile)
   ```bash
-  make download
-  make
+  git clone git@github.com:eloualiche/SL-Employment-Covid19.git
+  cd SL-Employment-Covid19
+  make download_data # download the data from the dataverse 
+  make               # build the datasets and tables for the paper
   ```
 
 

@@ -24,6 +24,10 @@ all: create_folders \
 download_data: 
 	  mkdir tmp
 	  cd tmp; wget "https://dataverse.harvard.edu/api/access/dataset/:persistentId/?persistentId=doi:10.7910/DVN/F9TYAI"
+	  cd tmp; mv "index.html?persistentId=doi:10.7910%2FDVN%2FF9TYAI" "dataverse.zip"
+	  cd tmp; unzip xf dataverse.zip
+	  cp -R -n tmp/data/* ./data
+	  rm -rf tmp
 		$(TIME-END)
 		@echo
 
@@ -63,7 +67,7 @@ build_census_employment:
 
 # --- read the CPS 
 build_cps_full:
-	cd code; $(STATA_MP_CLI) -b do assemble_4.do
+	cd code; $(STATA_CLI) -b do assemble_4.do
 	mv code/assemble_4.log code/log/assemble_4.log.do 
 	$(TIME-END)
 	@echo
@@ -77,7 +81,7 @@ build_reg:
 # --- generate summary statistics table	
 build_main_figs_tables: 
 	cd code; R CMD BATCH --vanilla create_table_1.R log/create_table_1.log.R
-	cd code; $(STATA_MP_CLI) -b do create_figs_tables.do
+	cd code; $(STATA_CLI) -b do create_figs_tables.do
 	mv code/create_figs_tables.log code/log/create_figs_tables.log.do 
 	$(TIME-END)
 	@echo
@@ -88,7 +92,7 @@ build_appendix_tables:
 	cd code; R CMD BATCH --vanilla create_appendix_table_2.R log/create_appendix_table_2.log.R
 	cd code; R CMD BATCH --vanilla create_appendix_table_3.R log/create_appendix_table_3.log.R
 	cd code; R CMD BATCH --vanilla create_appendix_table_8.R log/create_appendix_table_8.log.R
-	cd code; $(STATA_MP_CLI) -b do create_appendix_figs_tables.do
+	cd code; $(STATA_CLI) -b do create_appendix_figs_tables.do
 	mv code/create_appendix_figs_tables.log code/log/create_appendix_figs_tables.log.do 
 	$(TIME-END)
 	@echo
@@ -128,9 +132,9 @@ clean.all:
 # ------------------------------------------------------------------------------------------
 
 
-# ----------------------------------------------------------------------------
-# CHANGE THIS TO WHERE YOUR STATA BINARY IS
-STATA_MP_CLI := /Applications/Stata/StataMP.app/Contents/MacOS/stata-mp	
+# ------------------------------------------------------------------------------------------
+SHELL := /bin/bash
+STATA_CLI := $(shell which stata-mp)  # make sure that stata is in your path! 
 
 TIME_START := $(shell date +%s)
 WHITE='\033[1;37m'
